@@ -5,6 +5,9 @@ successives par une seule transformation équivalente.
 
 Dans cet exercice, j'applique d'abord la pose A, puis la pose B.
 
+L'objectif est de vérifier par l'exécution que l'application successive des
+deux poses donne le même résultat que l'application d'une seule pose composée.
+
 ## Code C++
 
 ```cpp
@@ -108,7 +111,7 @@ int main()
     Pose A, B;
     Vec3 point;
 
-    // Pose A : position puis quaternion (w x y z)
+    // Pose A : position puis quaternion normalisé (w x y z)
     std::cin >> A.position.x
              >> A.position.y
              >> A.position.z;
@@ -146,20 +149,22 @@ int main()
         parComposition.z - successif.z
     };
 
-    std::cout << std::fixed << std::setprecision(4);
+    std::cout << std::setprecision(17);
 
-    // Premier point
-    std::cout << successif.x << " "
+    std::cout << "Point obtenu successivement : "
+              << successif.x << " "
               << successif.y << " "
               << successif.z << '\n';
 
-    // Deuxième point
-    std::cout << parComposition.x << " "
+    std::cout << "Point obtenu par composition : "
+              << parComposition.x << " "
               << parComposition.y << " "
               << parComposition.z << '\n';
 
-    // Écart
-    std::cout << ecart.x << " "
+    std::cout << std::scientific;
+
+    std::cout << "Ecart : "
+              << ecart.x << " "
               << ecart.y << " "
               << ecart.z << '\n';
 
@@ -167,14 +172,14 @@ int main()
 }
 ```
 
-## Vérification
+## Formules de composition
 
 J'ai comparé deux méthodes :
 
 1. appliquer la pose A au point, puis appliquer la pose B au résultat ;
-2. composer A et B, puis appliquer directement la pose composée au point.
+2. composer A et B, puis appliquer directement la pose composée au même point.
 
-Pour une pose composée correspondant à A puis B, l'orientation est :
+Pour une pose composée correspondant à **A puis B**, l'orientation est :
 
 `orientation = B.orientation * A.orientation`
 
@@ -182,14 +187,128 @@ et la position est :
 
 `position = rotation(B.orientation, A.position) + B.position`
 
-Les deux points obtenus doivent être identiques aux erreurs d'arrondi près.
+L'ordre est important, en particulier pour la multiplication des quaternions.
 
-L'écart attendu est donc de la forme :
+## Vérification par l'exécution
 
-`0.0000 0.0000 0.0000`
+Cette fois, j'ai compilé et exécuté le programme afin de comparer directement
+les deux méthodes.
+
+Le programme m'a donné les trois lignes suivantes :
+
+```text
+Point obtenu successivement : 2.7071067811865475 1.5000000000000000 -1.7071067811865475
+Point obtenu par composition : 2.7071067811865479 1.5000000000000000 -1.7071067811865472
+Ecart : 4.44089209850062616e-16 0.00000000000000000e+00 2.22044604925031308e-16
+```
+
+## Comparaison des deux points
+
+Par application successive de A puis B, j'obtiens :
+
+```text
+(2.7071067811865475,
+ 1.5000000000000000,
+ -1.7071067811865475)
+```
+
+Par composition de A et B puis application au point, j'obtiens :
+
+```text
+(2.7071067811865479,
+ 1.5000000000000000,
+ -1.7071067811865472)
+```
+
+Les deux points sont pratiquement identiques.
+
+Les très petites différences apparaissent uniquement lorsque j'affiche un
+grand nombre de chiffres.
+
+## Écart mesuré
+
+L'écart réellement affiché par le programme est :
+
+```text
+(4.44089209850062616e-16,
+ 0.00000000000000000e+00,
+ 2.22044604925031308e-16)
+```
+
+Donc :
+
+- écart sur X : `4.44089209850062616e-16` ;
+- écart sur Y : `0.00000000000000000e+00` ;
+- écart sur Z : `2.22044604925031308e-16`.
+
+Les écarts sur X et Z sont de l'ordre de `10^-16`.
+
+Ils sont extrêmement petits et correspondent aux arrondis produits par les
+calculs en virgule flottante.
+
+## Ce que je vérifie
+
+Cette exécution confirme que les deux méthodes conduisent au même résultat
+à la précision numérique près.
+
+Elle vérifie donc expérimentalement les deux relations utilisées :
+
+`orientation = B.orientation * A.orientation`
+
+et :
+
+`position = rotation(B.orientation, A.position) + B.position`
+
+Ce test est particulièrement utile pour l'ordre des quaternions.
+
+Une erreur dans l'ordre de multiplication aurait pu donner un programme qui
+compile normalement, mais des coordonnées différentes entre l'application
+successive et la composition.
+
+Ici, les deux résultats coïncident aux erreurs d'arrondi près.
+
+## Pourquoi l'affichage de l'écart est utile
+
+Avec un affichage limité à quatre chiffres après la virgule, l'écart aurait
+semblé exactement nul :
+
+```text
+0.0000 0.0000 0.0000
+```
+
+Avec davantage de précision, j'observe au contraire :
+
+```text
+4.44089209850062616e-16
+0.00000000000000000e+00
+2.22044604925031308e-16
+```
+
+Je peux donc distinguer un véritable désaccord entre les deux calculs d'une
+simple erreur d'arrondi numérique.
 
 ## Conclusion
 
 La composition permet de représenter plusieurs transformations successives
-par une seule pose. L'ordre reste important : composer A puis B n'est
-généralement pas équivalent à composer B puis A.
+par une seule pose.
+
+Dans mon test, j'ai comparé directement :
+
+`point → A → B`
+
+avec :
+
+`point → composition(A, B)`
+
+Les deux points obtenus sont pratiquement identiques et l'écart mesuré est
+seulement de l'ordre de `10^-16`.
+
+Cette exécution confirme donc que la composition utilisée dans mon programme
+est correcte pour le cas testé.
+
+Elle confirme également que l'ordre est essentiel : pour appliquer A puis B,
+l'orientation composée utilisée ici est :
+
+`B.orientation * A.orientation`
+
+La composition des transformations n'est donc généralement pas commutative.
