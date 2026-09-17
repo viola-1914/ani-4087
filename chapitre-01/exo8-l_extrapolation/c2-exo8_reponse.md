@@ -1,6 +1,6 @@
 # Exercice 8 — L'extrapolation
 
-L'extrapolation consiste à estimer la pose future en supposant que les
+L'extrapolation consiste à estimer une pose future en supposant que les
 vitesses linéaire et angulaire restent constantes pendant une durée `dt`.
 
 La position est avancée avec la vitesse linéaire, tandis que l'orientation
@@ -158,11 +158,13 @@ int main()
 
     std::cout << std::fixed << std::setprecision(4);
 
-    std::cout << future.position.x << " "
+    std::cout << "Position extrapolee : "
+              << future.position.x << " "
               << future.position.y << " "
               << future.position.z << '\n';
 
-    std::cout << future.orientation.w << " "
+    std::cout << "Orientation extrapolee : "
+              << future.orientation.w << " "
               << future.orientation.x << " "
               << future.orientation.y << " "
               << future.orientation.z << '\n';
@@ -171,41 +173,222 @@ int main()
 }
 ```
 
-## Principe
+## Principe de l'extrapolation
 
 Pour la position, j'utilise :
 
-`position_future = position + vitesse_lineaire * dt`
+```text
+position_future = position + vitesse_lineaire * dt
+```
+
+La position future est donc obtenue en ajoutant à la position initiale le
+déplacement effectué pendant la durée `dt`.
 
 Pour l'orientation, la norme de la vitesse angulaire donne la vitesse de
 rotation en radians par seconde.
 
 L'angle parcouru pendant `dt` est donc :
 
-`angle = |vitesse_angulaire| * dt`
+```text
+angle = |vitesse_angulaire| * dt
+```
 
 La direction de la vitesse angulaire donne l'axe de rotation.
 
 À partir de cet axe et de cet angle, je construis un quaternion `delta`
-qui représente la rotation effectuée pendant `dt`.
+représentant la rotation effectuée pendant `dt`.
 
-Ce quaternion est ensuite composé avec l'orientation initiale.
+Ce quaternion est ensuite composé avec l'orientation initiale afin d'obtenir
+l'orientation extrapolée.
 
-## Cas d'une vitesse angulaire nulle
+## Cas particulier : vitesse angulaire nulle
 
-Si la norme de la vitesse angulaire est nulle, il ne faut pas essayer de
-calculer :
+Il faut traiter séparément le cas où la vitesse angulaire est nulle.
 
-`axe = vitesse_angulaire / |vitesse_angulaire|`
+En effet, le calcul normal de l'axe de rotation serait :
 
-car cela provoquerait une division par zéro.
+```text
+axe = vitesse_angulaire / |vitesse_angulaire|
+```
 
-Dans ce cas, je conserve simplement l'orientation initiale.
+Mais lorsque :
+
+```text
+|vitesse_angulaire| = 0
+```
+
+ce calcul provoquerait une division par zéro.
+
+J'utilise donc le garde-fou suivant :
+
+```cpp
+if (omega < 1e-12)
+{
+    resultat.orientation = pose.orientation;
+    return resultat;
+}
+```
+
+Dans ce cas, aucune rotation n'a lieu et l'orientation initiale est
+simplement conservée.
+
+## Test du cas de vitesse angulaire nulle
+
+Pour vérifier réellement ce comportement, j'ai exécuté le programme avec un
+cas dont je connaissais le résultat à l'avance.
+
+J'ai choisi :
+
+```text
+Position initiale :       (0, 0, 0)
+Orientation initiale :    (1, 0, 0, 0)
+Vitesse lineaire :        (0, 0, -1) m/s
+Vitesse angulaire :       (0, 0, 0) rad/s
+dt :                      1 seconde
+```
+
+Dans la convention utilisée ici, l'avant correspond à la direction `-Z`.
+
+Avec une vitesse de 1 m/s vers l'avant pendant une seconde, la position doit
+donc avancer exactement d'un mètre.
+
+Comme la vitesse angulaire est nulle, l'orientation doit rester inchangée.
+
+## Valeurs saisies
+
+J'ai donné au programme les valeurs suivantes :
+
+```text
+0 0 0
+1 0 0 0
+0 0 -1
+0 0 0
+1
+```
+
+Elles correspondent successivement à :
+
+```text
+position initiale
+orientation initiale
+vitesse linéaire
+vitesse angulaire
+dt
+```
+
+## Résultat réel de l'exécution
+
+Après exécution, mon programme a affiché :
+
+```text
+Position extrapolee : 0.0000 0.0000 -1.0000
+Orientation extrapolee : 1.0000 0.0000 0.0000 0.0000
+```
+
+Le résultat obtenu correspond exactement à celui attendu.
+
+## Vérification de la position
+
+Le calcul attendu était :
+
+```text
+position_future
+= position_initiale + vitesse_lineaire * dt
+
+= (0, 0, 0) + (0, 0, -1) * 1
+
+= (0, 0, -1)
+```
+
+Le programme affiche effectivement :
+
+```text
+Position extrapolee : 0.0000 0.0000 -1.0000
+```
+
+La position a donc avancé exactement d'un mètre vers l'avant.
+
+## Vérification de l'orientation
+
+Pour ce test :
+
+```text
+vitesse_angulaire = (0, 0, 0)
+```
+
+donc :
+
+```text
+|vitesse_angulaire| = 0
+```
+
+Le programme entre alors dans le cas particulier :
+
+```cpp
+if (omega < 1e-12)
+{
+    resultat.orientation = pose.orientation;
+    return resultat;
+}
+```
+
+L'orientation initiale était :
+
+```text
+(1, 0, 0, 0)
+```
+
+et le programme affiche :
+
+```text
+Orientation extrapolee : 1.0000 0.0000 0.0000 0.0000
+```
+
+L'orientation est donc bien restée inchangée.
+
+Le garde-fou évite ainsi la division par zéro tout en produisant le
+comportement attendu.
+
+## Ce que ce test vérifie
+
+Ce test permet de vérifier directement deux éléments du programme.
+
+Premièrement, l'extrapolation linéaire fonctionne : avec une vitesse de
+1 m/s pendant 1 seconde, la position avance bien de 1 mètre.
+
+Deuxièmement, le traitement d'une vitesse angulaire nulle fonctionne :
+aucune division par zéro n'est effectuée et l'orientation initiale est
+conservée.
+
+Il s'agit volontairement d'un cas simple dont le résultat pouvait être
+calculé avant l'exécution. Cela permet de comparer directement le résultat
+attendu au résultat réellement produit par le code.
 
 ## Conclusion
 
-L'extrapolation permet d'estimer la pose future à partir des vitesses
-linéaire et angulaire.
+L'extrapolation permet d'estimer une pose future à partir d'une pose initiale,
+d'une vitesse linéaire, d'une vitesse angulaire et d'une durée `dt`.
 
-Cette estimation est valable sur une courte durée tant que l'hypothèse
-de vitesses constantes reste raisonnable.
+La position est avancée selon :
+
+```text
+position_future = position + vitesse_lineaire * dt
+```
+
+et l'orientation est avancée à partir de l'axe et de l'angle obtenus avec la
+vitesse angulaire.
+
+Le cas d'une vitesse angulaire nulle doit être traité séparément afin
+d'éviter une division par zéro.
+
+L'exécution réalisée avec une vitesse linéaire de 1 m/s vers l'avant, une
+vitesse angulaire nulle et `dt = 1 s` a donné :
+
+```text
+Position extrapolee : 0.0000 0.0000 -1.0000
+Orientation extrapolee : 1.0000 0.0000 0.0000 0.0000
+```
+
+Le test confirme donc expérimentalement que la position est correctement
+extrapolée d'un mètre et que l'orientation reste inchangée lorsque la vitesse
+angulaire est nulle.
