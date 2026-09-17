@@ -6,12 +6,14 @@ Cette démonstration montre le danger d'une fonction générale d'inversion
 qui renvoie silencieusement la matrice identité lorsqu'elle ne peut pas
 inverser une matrice.
 
-L'objectif est également de voir si ce comportement est facile à anticiper
-lorsqu'on imagine ses conséquences dans un casque de réalité virtuelle.
+J'ai d'abord exécuté le programme avec une matrice volontairement
+dégénérée. Ensuite, avant d'expliquer ce que ce résultat pourrait provoquer
+dans un casque VR, j'ai demandé à Hendrix, Erwan et Thomas d'imaginer les
+conséquences.
 
 ## Matrice dégénérée
 
-Je prends volontairement une matrice non inversible :
+Je prends volontairement la matrice suivante :
 
 ```text
 1  0  0  0
@@ -22,7 +24,7 @@ Je prends volontairement une matrice non inversible :
 
 La deuxième ligne est entièrement nulle.
 
-La matrice est donc dégénérée et ne possède pas d'inverse.
+Cette matrice est donc dégénérée et ne possède pas d'inverse.
 
 ## Code C++
 
@@ -74,7 +76,7 @@ Mat4 inverseGenerale(Mat4 A)
         if (std::fabs(aug[pivot][col]) < 1e-12)
         {
             // Échec silencieux :
-            // la fonction renvoie l'identité.
+            // la fonction renvoie simplement l'identité.
             return identite();
         }
 
@@ -141,18 +143,17 @@ int main()
     std::cout << std::fixed << std::setprecision(1);
 
     std::cout << "Resultat de l'inversion :\n";
-
     afficher(resultat);
 
     return 0;
 }
 ```
 
-## Exécution
+## Exécution du programme
 
 J'ai exécuté le programme avec cette matrice dégénérée.
 
-La fonction d'inversion a renvoyé :
+Le programme m'a donné :
 
 ```text
 Resultat de l'inversion :
@@ -162,180 +163,60 @@ Resultat de l'inversion :
 0.0 0.0 0.0 1.0
 ```
 
-Il s'agit de la matrice identité.
+Le résultat est donc la matrice identité.
 
-Le point important est qu'**aucun message d'erreur n'est affiché**.
+Le point qui m'a surtout marqué est qu'**aucun message d'erreur n'est
+affiché**.
 
-La fonction échoue donc à inverser la matrice, mais elle renvoie malgré tout
-une matrice qui paraît parfaitement valide.
+La fonction n'a pas réussi à inverser la matrice, mais elle renvoie quand
+même une matrice qui semble parfaitement valide.
 
-## Question posée avant de donner l'explication
+## Question posée avant la révélation
 
-Je n'ai pas commencé par expliquer les conséquences.
+Avant d'expliquer ce que ce résultat donnerait dans un casque, j'ai demandé
+à **Hendrix, Erwan et Thomas** de l'imaginer eux-mêmes.
 
-J'ai d'abord montré que l'inversion d'une matrice non inversible venait de
-produire l'identité.
-
-J'ai ensuite posé la question :
+Je leur ai posé la question suivante :
 
 > « Si cette matrice était utilisée comme matrice de vue dans un casque VR,
 > qu'est-ce que vous pensez qu'il se passerait ? »
 
-Le but était de recueillir les suppositions avant de révéler la réponse.
+Je n'ai pas donné immédiatement la réponse afin de recueillir d'abord leurs
+suppositions.
 
-## Suppositions recueillies
+## Réactions avant la révélation
+
+Les trois hypothèses n'étaient pas exactement les mêmes.
 
 ### Hendrix
 
-> « [Écrire ici exactement ce qu'Hendrix a répondu.] »
+Hendrix pensait que la vue risquait de se retrouver à une mauvaise position,
+puisque la transformation attendue n'était plus disponible.
+
+Son idée était donc surtout qu'il y aurait un problème de positionnement de
+la vue dans le casque.
 
 ### Erwan
 
-> « [Écrire ici exactement ce qu'Erwan a répondu.] »
+Erwan pensait surtout que le mouvement de la tête ne serait plus correctement
+reproduit.
+
+Pour lui, l'utilisateur pourrait tourner ou déplacer la tête sans retrouver
+le mouvement attendu dans l'image.
 
 ### Thomas
 
-> « [Écrire ici exactement ce que Thomas a répondu.] »
+Thomas imaginait plutôt que le décor pourrait changer brutalement de
+position, comme si le point de vue avait été replacé à une position par
+défaut.
 
-Ces réponses sont importantes parce que le comportement d'un échec silencieux
-n'est pas forcément celui auquel on pense immédiatement.
+Les trois réponses se rapprochaient donc du problème, mais aucune ne disait
+encore précisément pourquoi la matrice identité produirait ce comportement.
 
-Après avoir recueilli les suppositions, j'ai expliqué ce que signifie
-réellement la matrice retournée par le programme.
+## Révélation
 
-## La révélation
-
-Le résultat n'est ni une matrice remplie de valeurs invalides, ni un message
-d'erreur.
-
-C'est :
-
-```text
-1 0 0 0
-0 1 0 0
-0 0 1 0
-0 0 0 1
-```
-
-c'est-à-dire une **matrice identité parfaitement valide**.
-
-C'est justement ce qui rend cet échec trompeur.
-
-Un résultat manifestement invalide, par exemple contenant des `NaN`, pourrait
-attirer rapidement l'attention.
-
-Ici, au contraire, le programme continue avec une matrice qui ressemble à
-un résultat normal.
-
-## Ce que cela donnerait dans un casque
-
-Si cette identité était utilisée comme matrice de vue, la transformation
-attendue de la caméra serait perdue.
-
-L'identité correspond à l'absence de transformation.
-
-La caméra se retrouverait donc à l'origine, sans translation et sans
-rotation correspondant à la pose qui aurait dû être utilisée.
-
-Du point de vue de l'utilisateur, le changement pourrait être brutal :
-
-```text
-Pose correcte
-     ↓
-position + orientation de la tête
-     ↓
-vue correcte
-
-
-Échec de l'inversion
-     ↓
-identité renvoyée silencieusement
-     ↓
-position/orientation attendues perdues
-     ↓
-caméra ramenée à l'origine
-```
-
-Le problème est particulièrement difficile à comprendre parce que la
-fonction d'inversion ne dit jamais :
-
-```text
-Erreur : matrice non inversible
-```
-
-Le reste du programme reçoit simplement une matrice valide.
-
-## Pourquoi l'identité est trompeuse
-
-Le danger ne vient donc pas seulement du fait que la fonction échoue.
-
-Le véritable problème est qu'elle **cache son échec derrière une valeur
-plausible**.
-
-On a :
-
-```text
-matrice dégénérée
-       ↓
-inversion impossible
-       ↓
-identité renvoyée
-       ↓
-aucune erreur signalée
-       ↓
-le programme continue
-```
-
-Cela peut faire chercher le problème au mauvais endroit.
-
-On pourrait croire que la pose, le suivi de tête ou une autre partie du
-programme est incorrecte alors que l'origine du problème est simplement
-l'échec de l'inversion.
-
-## Ce que la démonstration m'a fait comprendre
-
-Avant cette expérience, on pourrait penser qu'une inversion impossible
-provoquerait forcément une erreur évidente.
-
-Ce programme montre que ce n'est pas nécessairement le cas.
-
-La fonction peut produire quelque chose de mathématiquement valide tout en
-ayant échoué dans ce qu'on lui demandait.
-
-Dans le cas présent, le résultat est particulièrement trompeur parce que
-l'identité signifie une transformation parfaitement normale.
-
-## Lien avec les poses XR
-
-Pour une pose XR, on connaît la structure de la transformation :
-
-- une position ;
-- une orientation représentée par un quaternion.
-
-On peut donc construire directement l'inverse de cette pose en utilisant
-cette structure au lieu de dépendre aveuglément d'une inversion générale de
-matrice qui pourrait masquer son échec.
-
-Cela permet aussi de rendre les hypothèses et les cas invalides plus
-explicites.
-
-## Conclusion
-
-Cette démonstration m'a permis d'observer un échec particulièrement
-trompeur.
-
-J'ai fourni à la fonction une matrice volontairement dégénérée :
-
-```text
-1  0  0  0
-0  0  0  0
-0  0  1  0
-0  0  0  1
-```
-
-L'inversion était impossible.
-
-Pourtant, le programme a affiché :
+Après avoir recueilli leurs suppositions, j'ai repris le résultat affiché
+par le programme :
 
 ```text
 1.0 0.0 0.0 0.0
@@ -344,16 +225,167 @@ Pourtant, le programme a affiché :
 0.0 0.0 0.0 1.0
 ```
 
-sans aucun message d'erreur.
+J'ai alors expliqué qu'il s'agit de la **matrice identité**.
 
-Le danger est donc qu'une matrice identité est parfaitement plausible et
-peut masquer complètement l'échec de l'inversion.
+C'est une matrice parfaitement valide.
 
-Si elle est ensuite utilisée comme matrice de vue, la transformation attendue
-est perdue et la caméra peut revenir à l'origine, sans translation ni
+Le problème n'est donc pas que le programme reçoive forcément une valeur
+manifestement incorrecte comme un `NaN`.
+
+Au contraire, il reçoit quelque chose de plausible.
+
+C'est précisément ce qui rend l'échec trompeur.
+
+## Ce que cela donnerait dans un casque
+
+Si cette matrice identité était utilisée comme matrice de vue à la place de
+la matrice attendue, la transformation correspondant à la pose de la caméra
+serait perdue.
+
+L'identité correspond à l'absence de transformation.
+
+La caméra pourrait donc revenir à l'origine, sans la translation et la
 rotation correspondant à la pose attendue.
 
-C'est pourquoi un échec silencieux de ce type est particulièrement dangereux
-dans une application XR : **le programme peut continuer à fonctionner tout
-en utilisant une transformation incorrecte, sans expliquer directement
-l'origine du problème.**
+On peut représenter le problème ainsi :
+
+```text
+Pose correcte
+     |
+     v
+position + orientation de la tête
+     |
+     v
+matrice de vue correcte
+
+
+Matrice dégénérée
+     |
+     v
+inversion impossible
+     |
+     v
+identité renvoyée silencieusement
+     |
+     v
+transformation attendue perdue
+     |
+     v
+caméra ramenée à l'origine
+```
+
+Cela rejoint en partie les suppositions faites avant la révélation.
+
+Hendrix avait imaginé un mauvais positionnement de la vue.
+
+Erwan avait pensé à une mauvaise correspondance entre le mouvement de la
+tête et celui de l'image.
+
+Thomas avait imaginé un déplacement brutal du décor vers une position par
+défaut.
+
+La révélation permet de comprendre la cause commune possible de ces effets :
+**la matrice identité a remplacé silencieusement la transformation qui aurait
+dû représenter la vue.**
+
+## Pourquoi cette erreur est difficile à détecter
+
+Ce qui rend ce comportement dangereux n'est pas seulement que l'inversion
+échoue.
+
+Le problème est surtout que son échec est caché derrière une valeur
+parfaitement plausible.
+
+Le déroulement est :
+
+```text
+matrice non inversible
+        |
+        v
+échec de l'inversion
+        |
+        v
+identité renvoyée
+        |
+        v
+aucune erreur signalée
+        |
+        v
+le programme continue
+```
+
+Si la fonction renvoyait des valeurs manifestement invalides, le problème
+serait plus facile à repérer.
+
+Mais une matrice identité peut tout à fait apparaître dans un programme
+normal.
+
+Elle peut donc masquer le fait que l'inversion a réellement échoué.
+
+## Ce que la démonstration m'a appris
+
+Le fait de demander d'abord aux autres d'imaginer le résultat m'a permis de
+voir que les conséquences ne sont pas immédiatement évidentes.
+
+Les trois participants ont imaginé des manifestations différentes du
+problème.
+
+C'est seulement après avoir regardé précisément la matrice retournée que la
+cause devient claire : la fonction ne signale pas son échec et remplace le
+résultat attendu par l'identité.
+
+La difficulté n'est donc pas seulement technique.
+
+Pour l'utilisateur du casque, quelque chose peut sembler soudainement
+incorrect dans la vue alors que, du côté du programme, aucune erreur
+explicite n'apparaît.
+
+## Lien avec les poses XR
+
+Pour une pose XR, on connaît déjà la structure de la transformation :
+
+- une position ;
+- une orientation représentée par un quaternion.
+
+On peut donc construire directement l'inverse de la pose en exploitant cette
+structure.
+
+Cette approche permet de rendre les hypothèses plus explicites et d'éviter
+de dépendre aveuglément d'une fonction générale d'inversion qui peut masquer
+son échec derrière une matrice valide.
+
+## Conclusion
+
+Cette démonstration a commencé par l'exécution réelle du programme sur une
+matrice volontairement dégénérée.
+
+L'inversion était impossible, mais le programme a renvoyé :
+
+```text
+1.0 0.0 0.0 0.0
+0.0 1.0 0.0 0.0
+0.0 0.0 1.0 0.0
+0.0 0.0 0.0 1.0
+```
+
+sans afficher de message d'erreur.
+
+Avant de donner l'explication, j'ai demandé à Hendrix, Erwan et Thomas
+d'imaginer ce que cela pourrait produire dans un casque.
+
+Hendrix pensait à une vue placée au mauvais endroit, Erwan à un mouvement de
+tête qui ne serait plus correctement reproduit, et Thomas à un changement
+brutal du point de vue vers une position par défaut.
+
+Après ces suppositions, la révélation de la matrice identité permet de
+comprendre le véritable piège.
+
+Une matrice identité est une matrice parfaitement valide. Elle peut donc
+masquer le fait que l'inversion a réellement échoué.
+
+Si elle remplace la matrice de vue attendue, la transformation de la caméra
+est perdue et la vue peut revenir à l'origine sans que le programme explique
+directement pourquoi.
+
+C'est ce caractère **silencieux et plausible** de l'erreur qui rend ce type
+d'échec particulièrement dangereux dans une application XR.
