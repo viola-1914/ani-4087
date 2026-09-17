@@ -1,68 +1,80 @@
 # Démo 3 — Le doigt et le mur
 
-Cette démonstration permet d'observer directement la différence entre ce que
-voit l'œil gauche et ce que voit l'œil droit.
+## Objectif
 
-## Première expérience : le doigt à 30 cm
+Cette démonstration permet de constater directement que l'œil gauche et
+l'œil droit ne voient pas exactement la même image d'une scène.
 
-Je place mon doigt à environ 30 cm de mes yeux et je choisis un point fixe
-sur le mur comme repère.
+J'ai réalisé l'expérience avec le doigt placé à deux distances différentes :
+d'abord à environ 30 cm, puis beaucoup plus loin, à environ 3 m.
 
-Sans bouger la tête, je ferme d'abord l'œil gauche, puis l'œil droit.
+## Première observation : le doigt à 30 cm
 
-Le doigt semble se déplacer fortement par rapport au point choisi sur le mur.
+Je place mon doigt à environ 30 cm devant mes yeux et je choisis un point
+fixe du mur comme repère.
 
-Pourtant, le doigt n'a pas réellement bougé.
+Sans déplacer la tête ni le doigt, je ferme alternativement l'œil gauche
+puis l'œil droit.
 
-Ce déplacement apparent vient du fait que l'œil gauche et l'œil droit
-n'observent pas la scène exactement depuis le même endroit.
+Le résultat est très visible : le doigt semble changer de position par
+rapport au point choisi sur le mur.
 
-## Deuxième expérience : le doigt à 3 mètres
+Pourtant, le doigt est resté exactement au même endroit.
 
-Je recommence l'expérience avec le doigt beaucoup plus éloigné, à environ
-3 mètres.
+Le changement vient donc du fait que les deux yeux observent la scène depuis
+deux positions légèrement différentes.
 
-En fermant alternativement les deux yeux, le déplacement apparent devient
-beaucoup plus faible.
+## Deuxième observation : le doigt à environ 3 m
 
-La différence entre les deux images est donc beaucoup plus importante pour
-un objet proche que pour un objet éloigné.
+Je recommence ensuite avec le doigt beaucoup plus éloigné.
 
-## Comparaison
+En fermant alternativement les deux yeux, je remarque encore une différence,
+mais elle est nettement moins importante que lorsque le doigt était proche.
 
-| Distance du doigt | Différence entre les deux vues |
+La comparaison est donc claire :
+
+| Distance | Observation |
 |---|---|
-| 30 cm | Très visible |
-| 3 m | Beaucoup plus faible |
+| Environ 30 cm | Décalage très visible entre les deux vues |
+| Environ 3 m | Décalage beaucoup plus faible |
 
-Cette différence entre les images reçues par les deux yeux correspond à la
-disparité binoculaire.
+## Ce que montre l'expérience
 
-## Pourquoi faut-il dessiner deux fois ?
+Cette différence entre ce que voit l'œil gauche et ce que voit l'œil droit
+correspond à la disparité binoculaire.
 
-Nos yeux sont séparés physiquement. Ils ne voient donc pas exactement la même
-image d'une scène.
+Elle est particulièrement importante pour les objets proches et devient
+plus faible lorsque les objets sont éloignés.
 
-Pour reproduire cette situation dans un casque de réalité virtuelle, une seule
-image ne suffit pas.
+C'est l'une des informations que le cerveau peut utiliser pour apprécier
+la profondeur.
 
-Le système doit calculer :
+## Pourquoi faut-il dessiner la scène deux fois en VR ?
 
-- une vue correspondant à la position de l'œil gauche ;
-- une autre vue correspondant à la position de l'œil droit.
+Cette expérience donne une réponse assez directe.
 
-Les deux images sont légèrement différentes, surtout pour les objets proches.
+Si mes deux yeux ne voient pas exactement la même image dans le monde réel,
+un casque VR ne doit pas non plus leur présenter exactement le même point
+de vue.
 
-Le cerveau peut alors utiliser cette différence pour percevoir la profondeur.
+Il faut donc produire :
+
+- une vue calculée depuis la position de l'œil gauche ;
+- une vue calculée depuis la position de l'œil droit.
+
+Les deux images représentent la même scène, mais depuis deux positions
+légèrement différentes.
 
 ## Conclusion
 
-L'expérience du doigt montre simplement pourquoi une scène de réalité virtuelle
-doit être dessinée deux fois.
+L'expérience du doigt rend le principe beaucoup plus concret.
 
-Chaque œil possède son propre point de vue. Le décalage entre ces deux vues
-est particulièrement visible pour les objets proches et diminue lorsque les
-objets s'éloignent.
+À courte distance, le changement apparent de position du doigt entre les
+deux yeux est évident. En l'éloignant, ce changement devient beaucoup moins
+important.
 
-C'est cette différence entre les deux images qui contribue à la perception
-du relief et de la profondeur.
+Cela explique pourquoi une application de réalité virtuelle doit calculer
+deux vues de la scène : une pour chaque œil.
+
+Ce n'est donc pas simplement la même image affichée deux fois. Les deux
+images doivent correspondre aux deux points de vue différents de nos yeux.
