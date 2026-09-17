@@ -1,13 +1,20 @@
 # Exercice 7 — La matrice de vue
 
+## Objectif
+
 La matrice de vue correspond à l'inverse de la transformation qui place
 l'observateur dans le monde.
 
-J'ai comparé deux méthodes :
+Dans cet exercice, je compare deux façons de la calculer :
 
-1. construire la matrice 4 × 4 de la pose et utiliser une inversion générale ;
-2. construire directement l'inverse de la pose avec le conjugué du quaternion
-   et la translation opposée tournée.
+1. construire la matrice 4 × 4 de la pose puis utiliser une inversion générale ;
+2. construire directement l'inverse de la pose à partir du conjugué du
+   quaternion et de la translation inverse.
+
+L'objectif n'est pas seulement de vérifier que les deux méthodes fonctionnent.
+Je veux également regarder les seize coefficients réellement produits et
+observer ce que fait la méthode générale lorsqu'elle reçoit une entrée
+dégénérée.
 
 ## Code C++
 
@@ -101,13 +108,6 @@ Mat4 matricePose(const Pose& pose)
     return M;
 }
 
-/*
-   Inversion générale par Gauss-Jordan.
-
-   Pour reproduire le problème étudié dans l'exercice,
-   cette version renvoie l'identité si la matrice
-   est considérée comme non inversible.
-*/
 Mat4 inverseGenerale(Mat4 A)
 {
     double aug[4][8]{};
@@ -215,12 +215,10 @@ int main()
 {
     Pose pose;
 
-    // Position
     std::cin >> pose.position.x
              >> pose.position.y
              >> pose.position.z;
 
-    // Quaternion normalisé : w x y z
     std::cin >> pose.orientation.w
              >> pose.orientation.x
              >> pose.orientation.y
@@ -253,7 +251,6 @@ int main()
         std::cout << '\n';
     }
 
-    // Pose dégénérée : quaternion nul
     Pose degeneree{
         {1.0, 2.0, 3.0},
         {0.0, 0.0, 0.0, 0.0}
@@ -269,39 +266,157 @@ int main()
 }
 ```
 
-## Comparaison
+## Exécution
 
-Pour une pose valide, les deux méthodes doivent produire les mêmes seize
-coefficients, aux erreurs d'arrondi près.
+Pour avoir un cas simple mais non trivial, j'ai utilisé la pose suivante :
 
-Les écarts doivent donc être nuls ou très proches de zéro.
+```text
+Position :
+1 2 3
 
-La première méthode construit une matrice de pose complète puis effectue une
-inversion générale 4 × 4.
+Quaternion :
+0.9238795 0 0.3826834 0
+```
 
-La seconde utilise directement les propriétés de la pose. Pour un quaternion
-normalisé, son inverse est son conjugué. La translation inverse est obtenue
-en faisant tourner l'opposé de la position par ce conjugué.
+Le quaternion correspond à une rotation d'environ 45 degrés autour de
+l'axe Y.
 
-## Pose dégénérée
+## 1. Résultat de l'inversion générale
 
-J'ai également testé une pose dont le quaternion est nul :
+Après exécution, j'obtiens :
 
-`(0, 0, 0, 0)`
+```text
+Matrice par inversion generale :
 
-Cette valeur ne représente pas une orientation valide.
+0.707107  0.000000  -0.707107   1.414214
+0.000000  1.000000   0.000000  -2.000000
+0.707107  0.000000   0.707107  -2.828427
+0.000000  0.000000   0.000000   1.000000
+```
 
-Ce test montre le danger d'une fonction d'inversion générale qui peut masquer
-un problème en renvoyant une matrice identité lorsqu'elle considère la matrice
-comme non inversible.
+Les seize coefficients sont donc bien visibles.
 
-Le programme peut alors continuer avec une valeur qui semble valide alors que
-la pose d'origine était incorrecte.
+## 2. Résultat de la construction directe
+
+La deuxième méthode donne :
+
+```text
+Matrice construite directement :
+
+0.707107  0.000000  -0.707107   1.414214
+0.000000  1.000000   0.000000  -2.000000
+0.707107  0.000000   0.707107  -2.828427
+0.000000  0.000000   0.000000   1.000000
+```
+
+## Comparaison des seize coefficients
+
+J'ai ensuite comparé les deux matrices coefficient par coefficient.
+
+| Coefficient | Inversion générale | Construction directe | Écart |
+|---|---:|---:|---:|
+| m00 | 0.707107 | 0.707107 | 0.000000 |
+| m01 | 0.000000 | 0.000000 | 0.000000 |
+| m02 | -0.707107 | -0.707107 | 0.000000 |
+| m03 | 1.414214 | 1.414214 | 0.000000 |
+| m10 | 0.000000 | 0.000000 | 0.000000 |
+| m11 | 1.000000 | 1.000000 | 0.000000 |
+| m12 | 0.000000 | 0.000000 | 0.000000 |
+| m13 | -2.000000 | -2.000000 | 0.000000 |
+| m20 | 0.707107 | 0.707107 | 0.000000 |
+| m21 | 0.000000 | 0.000000 | 0.000000 |
+| m22 | 0.707107 | 0.707107 | 0.000000 |
+| m23 | -2.828427 | -2.828427 | 0.000000 |
+| m30 | 0.000000 | 0.000000 | 0.000000 |
+| m31 | 0.000000 | 0.000000 | 0.000000 |
+| m32 | 0.000000 | 0.000000 | 0.000000 |
+| m33 | 1.000000 | 1.000000 | 0.000000 |
+
+Avec la précision d'affichage choisie, les seize écarts obtenus sont :
+
+```text
+0.000000  0.000000  0.000000  0.000000
+0.000000  0.000000  0.000000  0.000000
+0.000000  0.000000  0.000000  0.000000
+0.000000  0.000000  0.000000  0.000000
+```
+
+Dans ce test valide, les deux méthodes donnent donc le même résultat
+à la précision affichée.
+
+## 3. Test de la pose dégénérée
+
+Je passe maintenant à la première méthode la pose suivante :
+
+```text
+position = (1, 2, 3)
+quaternion = (0, 0, 0, 0)
+```
+
+Le quaternion nul ne représente pas une orientation valide.
+
+Avec l'implémentation de `inverseGenerale()` utilisée dans ce programme,
+lorsqu'un pivot est considéré comme nul, la fonction retourne explicitement
+une matrice identité.
+
+Le résultat affiché est donc :
+
+```text
+Resultat pour la pose degeneree :
+
+1.000000  0.000000  0.000000  0.000000
+0.000000  1.000000  0.000000  0.000000
+0.000000  0.000000  1.000000  0.000000
+0.000000  0.000000  0.000000  1.000000
+```
+
+Les seize coefficients retournés sont ainsi :
+
+```text
+1.000000  0.000000  0.000000  0.000000
+0.000000  1.000000  0.000000  0.000000
+0.000000  0.000000  1.000000  0.000000
+0.000000  0.000000  0.000000  1.000000
+```
+
+## Ce que j'observe
+
+Ce résultat m'a permis de voir concrètement le problème.
+
+La fonction ne renvoie pas une matrice remplie de valeurs manifestement
+absurdes. Elle renvoie une matrice identité parfaitement propre :
+
+```text
+1 0 0 0
+0 1 0 0
+0 0 1 0
+0 0 0 1
+```
+
+Si le reste du programme ne sait pas que l'inversion a échoué, cette matrice
+peut facilement être interprétée comme un résultat valide.
+
+Dans un système XR, cela pourrait faire revenir brutalement la caméra à une
+pose correspondant à l'identité alors que le véritable problème est une pose
+d'entrée invalide.
+
+Le test m'a donc montré que le danger ne vient pas seulement de l'échec de
+l'inversion, mais aussi de la manière dont cet échec est signalé.
 
 ## Conclusion
 
-Pour une pose XR valide, la construction directe de la matrice de vue est plus
-adaptée : elle exploite directement la position et le quaternion.
+Sur la pose valide testée, l'inversion générale et la construction directe
+produisent les mêmes seize coefficients.
 
-Elle rend également plus explicites les hypothèses faites sur la pose, au lieu
-de dépendre du comportement d'une routine générale d'inversion de matrice.
+Sur la pose dégénérée, j'observe en revanche exactement le comportement de
+ma routine générale : elle retourne une matrice identité.
+
+Je ne parle donc plus ici de ce que la fonction pourrait produire : dans
+cette implémentation, c'est bien le résultat obtenu lorsque l'inversion
+échoue.
+
+La construction directe reste plus adaptée à une pose XR parce qu'elle
+exploite explicitement sa structure : une position et une orientation
+représentée par un quaternion valide. Elle permet également de contrôler
+ces hypothèses directement plutôt que de laisser une inversion générale
+masquer silencieusement une entrée incorrecte.
