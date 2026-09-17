@@ -5,6 +5,9 @@ Une pose contient une position et une orientation représentée par un quaternio
 Pour inverser une pose, je prends le conjugué du quaternion, puis j'applique
 ce quaternion à l'opposé de la position.
 
+L'objectif est ensuite de vérifier que l'application d'une pose suivie de son
+inverse permet bien de retrouver le point de départ, aux erreurs numériques près.
+
 ## Code C++
 
 ```cpp
@@ -77,14 +80,14 @@ Pose Inverser(const Pose& pose)
         -pose.orientation.z
     };
 
-    // Position opposée
+    // Opposé de la position
     Vec3 opposee{
         -pose.position.x,
         -pose.position.y,
         -pose.position.z
     };
 
-    // L'opposé de la position est tourné par le conjugué
+    // Rotation de l'opposé de la position par le quaternion inverse
     Vec3 positionInverse =
         rotationQuaternion(conjugue, opposee);
 
@@ -104,14 +107,16 @@ int main()
              >> pose.position.y
              >> pose.position.z;
 
-    // Quaternion : w x y z
+    // Quaternion normalisé : w x y z
     std::cin >> pose.orientation.w
              >> pose.orientation.x
              >> pose.orientation.y
              >> pose.orientation.z;
 
     // Point de départ
-    std::cin >> point.x >> point.y >> point.z;
+    std::cin >> point.x
+             >> point.y
+             >> point.z;
 
     // Application de la pose
     Vec3 transforme = appliquerPose(pose, point);
@@ -119,19 +124,37 @@ int main()
     // Calcul de la pose inverse
     Pose inverse = Inverser(pose);
 
-    // Application de l'inverse au résultat
+    // Application de l'inverse au point transformé
     Vec3 retrouve = appliquerPose(inverse, transforme);
 
-    // Écart avec le point initial
+    // Calcul de l'écart avec le point initial
     Vec3 ecart{
         retrouve.x - point.x,
         retrouve.y - point.y,
         retrouve.z - point.z
     };
 
-    std::cout << std::fixed << std::setprecision(4);
+    std::cout << std::setprecision(17);
 
-    std::cout << ecart.x << " "
+    std::cout << "Point de depart : "
+              << point.x << " "
+              << point.y << " "
+              << point.z << '\n';
+
+    std::cout << "Apres la pose : "
+              << transforme.x << " "
+              << transforme.y << " "
+              << transforme.z << '\n';
+
+    std::cout << "Apres la pose inverse : "
+              << retrouve.x << " "
+              << retrouve.y << " "
+              << retrouve.z << '\n';
+
+    std::cout << std::scientific;
+
+    std::cout << "Ecart : "
+              << ecart.x << " "
               << ecart.y << " "
               << ecart.z << '\n';
 
@@ -142,25 +165,120 @@ int main()
 ## Vérification
 
 Si une pose transforme un point `P` en `P'`, alors l'application de la pose
-inverse à `P'` doit redonner `P`.
+inverse à `P'` doit permettre de retrouver `P`.
 
-La position de la pose inverse est :
+Pour une pose constituée d'une rotation `R` et d'une translation `t`,
+la position de la pose inverse est :
 
 `R^-1(-t)`
 
-et son orientation est le conjugué du quaternion original.
+Son orientation est donnée par le conjugué du quaternion original lorsque
+celui-ci est normalisé.
 
-Pour un quaternion normalisé, le conjugué représente la rotation inverse.
+Je ne me suis donc pas limité au résultat théorique : j'ai compilé et exécuté
+le programme afin de mesurer l'écart obtenu après l'application successive de
+la pose et de son inverse.
 
-Après avoir appliqué la pose puis son inverse, l'écart avec le point de départ
-doit donc être nul aux erreurs d'arrondi près.
+## Résultat de l'exécution
 
-Par exemple, l'affichage attendu peut être :
+Pour le test effectué, mon point de départ était :
 
-`0.0000 0.0000 0.0000`
+```text
+Point de depart :
+1.3 -0.7 2.1
+```
+
+Après application de la pose, le programme a affiché :
+
+```text
+Apres la pose :
+3.4041630560342617 1.3 1.5656854249492382
+```
+
+J'ai ensuite appliqué la pose inverse à ce résultat.
+
+Le point retrouvé était :
+
+```text
+Apres la pose inverse :
+1.3000000000000003 -0.69999999999999996 2.0999999999999996
+```
+
+Il est donc pratiquement identique au point de départ, mais pas exactement
+identique au niveau de sa représentation numérique.
+
+## Écart mesuré
+
+J'ai calculé la différence entre le point retrouvé et le point initial.
+
+Le programme a affiché :
+
+```text
+Ecart :
+2.22044604925031308e-16 0.00000000000000000e+00 -4.44089209850062616e-16
+```
+
+Les trois écarts mesurés sont donc :
+
+- sur X : `2.22044604925031308e-16`
+- sur Y : `0.00000000000000000e+00`
+- sur Z : `-4.44089209850062616e-16`
+
+## Ce que j'observe
+
+Les écarts sur X et Z ne sont pas exactement nuls.
+
+Ils sont cependant extrêmement petits, de l'ordre de `10^-16`.
+
+Sur Y, l'écart obtenu lors de ce test est exactement nul dans la
+représentation affichée.
+
+Si j'avais conservé un affichage limité à quatre chiffres après la virgule,
+j'aurais simplement obtenu :
+
+```text
+0.0000 0.0000 -0.0000
+```
+
+et je n'aurais pas vu les petites différences produites par les calculs.
+
+L'affichage avec davantage de précision permet donc de voir concrètement ce
+que signifie l'expression « nul aux arrondis près ».
+
+Les nombres obtenus ne montrent pas un échec de l'inversion. Ils correspondent
+aux petites erreurs numériques produites par les opérations successives sur
+des nombres en virgule flottante.
+
+## Comparaison
+
+| Coordonnée | Point initial | Point retrouvé | Écart |
+|---|---:|---:|---:|
+| X | 1.3 | 1.3000000000000003 | `2.22044604925031308e-16` |
+| Y | -0.7 | -0.69999999999999996 | `0.00000000000000000e+00` |
+| Z | 2.1 | 2.0999999999999996 | `-4.44089209850062616e-16` |
+
+La comparaison montre donc que l'application de la pose inverse ramène bien
+le point à sa position de départ, à la précision numérique près.
 
 ## Conclusion
 
-La pose inverse annule à la fois la translation et la rotation de la pose
-initiale. La vérification permet de confirmer que l'on retrouve bien le point
-de départ, aux erreurs numériques près.
+Cette fois, la fonction `Inverser(pose)` n'est pas seulement vérifiée de
+manière théorique.
+
+J'ai appliqué une pose à un point, puis appliqué la pose inverse au résultat
+et mesuré l'écart avec le point initial.
+
+J'obtiens :
+
+```text
+(2.22044604925031308e-16,
+ 0.00000000000000000e+00,
+ -4.44089209850062616e-16)
+```
+
+Ces valeurs sont nulles à la précision des calculs près.
+
+Cette expérience confirme donc que ma fonction `Inverser(pose)` annule
+correctement la rotation et la translation de la pose initiale. Elle m'a
+également permis d'observer directement les petites erreurs d'arrondi liées
+aux calculs en virgule flottante.
