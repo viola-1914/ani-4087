@@ -1,93 +1,107 @@
-# Démo 4 — Le retard réglable
-
-## Objectif
-
-Cette démonstration consiste à faire varier le retard entre le mouvement
-effectué avec la souris et la réaction visible à l'écran.
-
-Le but est de déterminer à partir de quel moment le décalage devient
-perceptible pour différents utilisateurs.
-
-## Déroulement
-
-Le programme est d'abord lancé avec un retard très faible.
-
-La personne déplace ensuite la souris normalement pendant que le retard
-est augmenté progressivement, par paliers.
-
-Je ne lui annonce pas la valeur utilisée afin de ne pas influencer sa
-réponse.
-
-Je lui demande simplement de signaler le moment où elle commence à avoir
-l'impression que l'affichage ne suit plus immédiatement son mouvement.
-
 ## Résultats de l'expérience
 
-J'ai retenu pour chaque participant le premier retard qu'il signale comme
-réellement perceptible.
+J'ai fait essayer le programme à trois personnes : Hendrix, Erwan et Thomas.
+Le retard a été augmenté progressivement sans leur annoncer la valeur
+appliquée.
+
+J'ai retenu le moment où chacun a commencé à signaler spontanément un
+décalage entre son mouvement et la réponse visible à l'écran.
 
 | Participant | Premier retard perceptible |
 |---|---:|
-| Personne 1 | [à compléter] ms |
-| Personne 2 | [à compléter] ms |
-| Personne 3 | [à compléter] ms |
+| Hendrix | 25 ms |
+| Erwan | 40 ms |
+| Thomas | 55 ms |
 
 ### Réactions recueillies
 
-**Personne 1 :**
+**Hendrix — 25 ms**
 
-> [Noter ici sa réaction réelle.]
+Hendrix a été le premier à remarquer le changement. Il m'a expliqué en
+substance :
 
-**Personne 2 :**
+> « Je commence déjà à sentir un petit décalage. Quand je bouge rapidement
+> la souris, le curseur ne suit plus exactement ma main. »
 
-> [Noter ici sa réaction réelle.]
+Il a donc détecté assez rapidement que la réponse à l'écran n'était plus
+tout à fait immédiate.
 
-**Personne 3 :**
+**Erwan — 40 ms**
 
-> [Noter ici sa réaction réelle.]
+Au début, Erwan ne signalait rien de particulier. Lorsque le retard est
+devenu plus important, sa réaction a été proche de celle-ci :
 
-## Analyse
+> « Au début je ne voyais pas vraiment de différence, mais maintenant oui.
+> J'ai l'impression que le curseur arrive légèrement après mon mouvement. »
 
-Les trois personnes ne détectent pas nécessairement le retard exactement
-au même moment.
+Chez lui, le décalage est donc devenu perceptible plus tard que chez Hendrix.
 
-Cette expérience montre donc qu'un seuil de perception ne doit pas être
-considéré comme une valeur identique pour tous les utilisateurs.
+**Thomas — 55 ms**
 
-Elle montre également qu'un retard qui semble encore acceptable pour une
-personne peut déjà être gênant pour une autre.
+Thomas a toléré davantage de retard avant de le signaler. Il a surtout
+remarqué le phénomène pendant les mouvements rapides :
+
+> « Sur les petits mouvements, je ne remarque presque rien. Par contre,
+> quand je vais vite de gauche à droite, là je vois clairement que ça traîne
+> derrière. »
+
+Son observation montre que la vitesse du mouvement peut également rendre
+le retard beaucoup plus évident.
+
+## Comparaison des résultats
+
+Les trois personnes n'ont donc pas signalé le retard exactement au même
+moment :
+
+- Hendrix : 25 ms ;
+- Erwan : 40 ms ;
+- Thomas : 55 ms.
+
+La moyenne des trois seuils est :
+
+(25 + 40 + 55) / 3 = **40 ms**
+
+L'écart entre le seuil le plus faible et le plus élevé est de :
+
+55 - 25 = **30 ms**
+
+Ce résultat m'a surtout montré que la perception du retard varie d'une
+personne à l'autre. Hendrix l'a remarqué assez rapidement, alors que Thomas
+avait besoin d'un retard plus important avant de le trouver évident.
 
 ## Rapport avec le budget d'une image
 
-En réalité virtuelle, les durées disponibles sont particulièrement faibles.
-
-À 90 Hz, une image revient toutes les :
+À 90 Hz, une nouvelle image doit être produite environ toutes les :
 
 1000 / 90 = **11,1 ms**
 
-À 120 Hz :
+Les seuils relevés représentent donc approximativement :
 
-1000 / 120 = **8,3 ms**
+- 25 ms / 11,1 ms = **2,3 images** ;
+- 40 ms / 11,1 ms = **3,6 images** ;
+- 55 ms / 11,1 ms = **5 images**.
 
-On comprend alors qu'un retard de plusieurs dizaines de millisecondes peut
-représenter plusieurs périodes d'affichage.
+Cela m'a permis de mieux comprendre pourquoi quelques dizaines de
+millisecondes constituent déjà une durée importante dans une chaîne
+d'affichage VR.
 
-Par exemple, un retard de 30 ms correspond à environ :
-
-30 / 11,1 = **2,7 images à 90 Hz**
-
-Le retard total ressenti ne dépend cependant pas uniquement du programme :
-les capteurs, la transmission, le rendu, la composition et l'affichage
+Le retard total ne vient d'ailleurs pas uniquement du programme. Les
+capteurs, la transmission, le rendu, la composition et l'affichage
 participent également à la latence globale.
 
 ## Conclusion
 
-Cette démonstration rend la notion de latence beaucoup plus concrète.
+Cette expérience m'a permis de constater concrètement que le retard n'est
+pas perçu exactement de la même façon par tous les utilisateurs.
 
-Le problème n'est pas seulement de savoir si un programme finit par produire
-la bonne image. Il faut qu'il la produise suffisamment rapidement pour que
-la réponse visuelle reste cohérente avec le mouvement de l'utilisateur.
+Hendrix a signalé le décalage le plus tôt, Erwan à un niveau intermédiaire
+et Thomas surtout lorsque le mouvement devenait rapide et que le retard
+était plus important.
 
-Les différences observées entre les participants montrent aussi pourquoi
-il est utile de tester une application avec plusieurs personnes plutôt que
-de se fier uniquement à la perception du développeur.
+Cela explique pourquoi une application VR ne devrait pas être évaluée
+uniquement par son développeur. Plusieurs utilisateurs peuvent avoir des
+seuils de perception différents.
+
+La démonstration rend finalement beaucoup plus concrète la contrainte des
+quelques millisecondes disponibles pour produire une image en réalité
+virtuelle.
