@@ -1,77 +1,86 @@
 # Démo 2 — La vidéo qui donne le tournis
 
-Pour cette démonstration, le principe est de montrer en plein écran une
-séquence vidéo comportant des mouvements rapides et irréguliers de caméra,
-puis d'observer les réactions des personnes qui la regardent.
+## Objectif
 
-## Réactions observables
+Cette démonstration cherche à montrer qu'une sensation d'inconfort peut
+apparaître lorsque ce que les yeux perçoivent ne correspond pas aux
+informations données par le reste du corps.
 
-Les réactions peuvent être différentes d'une personne à l'autre.
+La vidéo est affichée en plein écran afin que le mouvement occupe une
+grande partie du champ visuel.
 
-Certaines personnes peuvent ressentir :
+## Déroulement
 
-- une impression d'instabilité ;
-- un léger vertige ;
-- une fatigue visuelle ;
-- une gêne ;
-- l'envie de détourner les yeux de l'écran.
+La vidéo est lancée devant la classe.
 
-D'autres personnes peuvent regarder exactement la même séquence sans
-ressentir de gêne particulière.
+Pendant la séquence, chacun reste assis ou immobile et observe simplement
+l'écran.
 
-Cette absence de réaction est elle aussi une donnée importante.
+Après la vidéo, les réactions peuvent être recueillies en demandant :
 
-## Pourquoi la vidéo peut-elle donner le tournis ?
+**« Qu'avez-vous ressenti pendant le mouvement de l'image ? »**
 
-Lorsque je regarde une vidéo dont la caméra bouge rapidement, mes yeux
-reçoivent des informations visuelles qui correspondent à un déplacement.
+Il est également important de demander :
 
-Pourtant, mon corps reste immobile.
+**« Qui n'a absolument rien ressenti ? »**
 
-L'oreille interne, qui participe à la perception des mouvements et de
-l'équilibre, ne détecte donc pas nécessairement le mouvement suggéré par
-l'image.
+Cette deuxième question est utile parce que tout le monde ne réagit pas
+de la même manière au même stimulus visuel.
 
-Il peut ainsi apparaître un conflit entre deux informations :
+## Observations
 
-`les yeux : je suis en mouvement`
+Les réactions doivent être notées telles qu'elles sont réellement exprimées.
 
-et
+Exemples de catégories à relever :
 
-`l'oreille interne : mon corps ne fait pas ce mouvement`
+- sensation de mouvement ;
+- léger vertige ;
+- impression d'instabilité ;
+- fatigue visuelle ;
+- envie de détourner le regard ;
+- aucune sensation particulière.
 
-Cette contradiction sensorielle peut provoquer une sensation
-d'inconfort chez certaines personnes.
+Il ne faut pas considérer l'absence de gêne comme un mauvais résultat :
+elle montre simplement que la sensibilité au conflit sensoriel varie
+d'une personne à l'autre.
 
-## Les personnes qui ne ressentent rien
+## Explication
 
-Il est important de demander également :
+Pendant la démonstration, les yeux voient une scène en mouvement alors
+que la personne reste physiquement immobile.
 
-« Qui n'a rien ressenti ? »
+Les informations visuelles peuvent donc suggérer un déplacement que le
+système vestibulaire ne confirme pas de la même manière.
 
-Tout le monde n'a pas la même sensibilité à ce type de stimulation.
+Il apparaît alors une incohérence entre les différentes informations
+sensorielles utilisées par le cerveau pour déterminer le mouvement et
+l'orientation du corps.
 
-Une personne qui ne ressent ni vertige ni gêne ne constitue donc pas un
-échec de la démonstration. Sa réaction fait partie des observations.
+Cette situation aide à comprendre pourquoi certaines expériences en
+réalité virtuelle peuvent provoquer une gêne ou un malaise.
 
-Cela montre que la sensibilité au conflit entre les informations visuelles
-et les informations liées à l'équilibre varie selon les personnes.
+## Lien avec la réalité virtuelle
 
-## Rapport avec la réalité virtuelle
+Dans un casque VR, l'image occupe une partie beaucoup plus importante du
+champ visuel qu'un écran ordinaire.
 
-Dans un casque de réalité virtuelle, ce problème peut devenir encore plus
-important parce que l'image occupe une grande partie du champ visuel et doit
-suivre les mouvements de la tête.
+Le système doit donc maintenir une bonne cohérence entre les mouvements
+réels de la tête et les changements visibles dans l'image.
 
-Si l'image affichée ne correspond pas suffisamment vite ou suffisamment bien
-au mouvement réellement détecté par le corps, les informations sensorielles
-peuvent devenir contradictoires.
+Un décalage ou un mouvement visuel qui ne correspond pas suffisamment
+aux sensations physiques peut augmenter l'inconfort chez certains
+utilisateurs.
 
 ## Conclusion
 
-Cette démonstration permet de comprendre qu'une image en mouvement peut
-provoquer une sensation physique même sur un écran ordinaire.
+Cette démonstration montre que la vision peut donner une impression de
+mouvement alors que le corps reste immobile.
 
-Elle montre aussi que les réactions varient selon les personnes. Il faut donc
-tenir compte aussi bien des personnes qui ressentent une gêne que de celles
-qui ne ressentent rien.
+Elle montre aussi un deuxième résultat important : les personnes ne
+réagissent pas toutes de la même manière.
+
+Certaines peuvent ressentir rapidement une gêne, tandis que d'autres
+peuvent regarder la même séquence sans ressentir de malaise particulier.
+
+Cette différence entre utilisateurs doit être prise en compte lors de
+la conception d'une expérience de réalité virtuelle.
