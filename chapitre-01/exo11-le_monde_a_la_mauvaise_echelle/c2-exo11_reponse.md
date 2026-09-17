@@ -2,21 +2,23 @@
 
 ## Objectif
 
-Dans cet exercice, j'ai voulu observer ce qui se passe lorsque les dimensions
-d'un environnement virtuel restent proportionnelles entre elles, mais que
-l'échelle générale du monde est modifiée.
+Dans cet exercice, j'ai étudié l'effet d'un changement d'échelle sur la
+perception d'une salle et de son mobilier.
 
-Pour cela, j'ai repris les dimensions de la salle utilisée précédemment.
+Le principe consiste à partir des dimensions normales d'une salle et à
+multiplier toutes les dimensions par un même facteur.
 
-Dimensions normales :
+Les dimensions de référence utilisées sont :
 
 - salle : 6 m × 4 m × 2,80 m ;
 - porte : 0,90 m × 2 m ;
 - table : 1,20 m × 0,80 m × 0,80 m ;
 - fenêtre : 1,50 m × 1,20 m.
 
-Le programme lit un facteur d'échelle et multiplie toutes les dimensions
-par ce facteur.
+J'ai utilisé trois facteurs différents : **0,5**, **1** et **2**.
+
+Après avoir préparé le programme, j'ai fait l'expérience avec trois
+participants : **Hendrix, Erwan et Thomas**.
 
 ## Code C++
 
@@ -28,6 +30,7 @@ int main()
 {
     double facteur;
 
+    std::cout << "Facteur d'echelle : ";
     std::cin >> facteur;
 
     double salleLongueur = 6.0;
@@ -68,21 +71,15 @@ int main()
 }
 ```
 
-## Trois facteurs testés
+## Les trois facteurs
 
-Pour observer l'effet du changement d'échelle, j'ai utilisé trois facteurs :
+J'ai utilisé les facteurs suivants :
 
-- facteur 0,5 ;
-- facteur 1 ;
-- facteur 2.
+- **0,5** : toutes les dimensions sont divisées par deux ;
+- **1** : les dimensions restent normales ;
+- **2** : toutes les dimensions sont multipliées par deux.
 
-Avec le facteur 0,5, toutes les dimensions sont divisées par deux.
-
-Avec le facteur 1, les dimensions restent celles de la salle de référence.
-
-Avec le facteur 2, toutes les dimensions sont doublées.
-
-Par exemple, la salle de 6 m × 4 m × 2,80 m devient :
+Pour la salle, le programme donne donc :
 
 | Facteur | Dimensions de la salle |
 |---:|---|
@@ -90,134 +87,193 @@ Par exemple, la salle de 6 m × 4 m × 2,80 m devient :
 | 1 | 6,00 m × 4,00 m × 2,80 m |
 | 2 | 12,00 m × 8,00 m × 5,60 m |
 
-## Contexte de l'expérience
+## Conditions de l'expérience
 
-J'ai repris l'expérience avec trois personnes : **Hendrix, Erwan et Thomas**.
+J'ai repris l'expérience avec **trois personnes réelles : Hendrix, Erwan et
+Thomas**.
 
-Je leur ai présenté la pièce avec les trois facteurs d'échelle sans leur
-annoncer à l'avance la valeur utilisée.
+Chacun a observé une version différente de la salle.
 
-Je leur ai demandé d'observer la salle, la table, la porte et les autres
-éléments, puis de me dire ce qui leur paraissait normal ou inhabituel dans
-les dimensions de l'environnement.
+Je ne leur ai pas annoncé à l'avance le facteur qui avait été appliqué.
 
-Je leur ai également demandé quelle impression ils avaient de leur propre
-taille par rapport à la pièce.
+Le but était justement de ne pas influencer leur description.
 
-## Résultats obtenus
+Je leur ai demandé de regarder les dimensions générales de la salle et du
+mobilier et de me dire simplement quelle impression l'environnement leur
+donnait.
 
-| Participant | Facteur | Impression principale |
+Les facteurs utilisés étaient :
+
+| Participant | Facteur présenté |
+|---|---:|
+| Hendrix | 0,5 |
+| Erwan | 1 |
+| Thomas | 2 |
+
+## Hendrix — facteur 0,5
+
+Pour Hendrix, j'ai utilisé le facteur **0,5**.
+
+La salle affichée correspondait donc à :
+
+`3,00 m × 2,00 m × 1,40 m`
+
+Hendrix a trouvé que l'environnement paraissait **trop petit**.
+
+Son impression était surtout qu'il était **trop grand par rapport à la
+pièce**.
+
+C'est cette réaction qui m'a intéressé : au lieu de seulement constater que
+les dimensions de la salle étaient réduites, il a aussi comparé
+spontanément sa propre taille à celle de l'environnement.
+
+## Erwan — facteur 1
+
+Pour Erwan, j'ai utilisé le facteur **1**.
+
+La salle gardait donc ses dimensions normales :
+
+`6,00 m × 4,00 m × 2,80 m`
+
+Erwan a trouvé l'environnement **normal**.
+
+Il n'a pas signalé d'impression particulière d'être trop grand ou trop petit
+par rapport à la salle.
+
+Ce résultat sert de référence par rapport aux deux autres essais.
+
+## Thomas — facteur 2
+
+Pour Thomas, j'ai utilisé le facteur **2**.
+
+La salle affichée correspondait donc à :
+
+`12,00 m × 8,00 m × 5,60 m`
+
+Thomas a trouvé l'environnement **très grand, presque immense**.
+
+Par rapport à cet environnement agrandi, il avait plutôt l'impression
+d'être **petit**.
+
+Sa réaction était donc pratiquement l'inverse de celle observée avec Hendrix.
+
+## Résultats des trois essais
+
+Les observations recueillies peuvent être résumées ainsi :
+
+| Participant | Facteur | Description recueillie |
 |---|---:|---|
-| Hendrix | 0,5 | La pièce lui paraît trop petite et il a l'impression d'être trop grand |
-| Erwan | 1 | Les dimensions lui paraissent normales |
-| Thomas | 2 | La pièce lui paraît immense et il a l'impression d'être petit |
+| Hendrix | 0,5 | L'environnement paraît trop petit ; impression d'être trop grand |
+| Erwan | 1 | L'environnement paraît normal |
+| Thomas | 2 | L'environnement paraît immense ; impression d'être petit |
 
-### Hendrix — facteur 0,5
+On obtient donc :
 
-Avec le facteur 0,5, Hendrix a immédiatement trouvé que les proportions
-étaient inhabituelles.
+```text
+Facteur 0,5
+→ environnement trop petit
+→ impression d'être trop grand
 
-Il a surtout remarqué que la pièce et ses différents éléments semblaient
-petits par rapport à lui. La table lui paraissait très basse et la porte
-beaucoup plus petite que ce qu'il attendait.
+Facteur 1
+→ environnement normal
+→ impression de taille normale
 
-Son impression générale était surtout d'être devenu **trop grand par rapport
-à la salle**.
+Facteur 2
+→ environnement très grand
+→ impression d'être petit
+```
 
-Ce qui m'a intéressé dans sa réaction est qu'il n'a pas seulement décrit
-la pièce comme petite : il a aussi décrit sa propre taille comme trop grande
-par rapport à l'environnement.
+## Ce qui m'a marqué pendant le test
 
-### Erwan — facteur 1
+Ce qui m'a surtout intéressé est que les descriptions ne concernaient pas
+uniquement les dimensions de la salle.
 
-Avec le facteur 1, la réaction d'Erwan a été beaucoup plus simple.
+Avec le facteur 0,5, Hendrix a aussi décrit une impression d'être trop grand.
 
-Il n'a pas remarqué de problème particulier dans les proportions. La hauteur
-de la table, la porte et les dimensions générales de la pièce lui semblaient
-normales.
+Avec le facteur 2, Thomas a au contraire décrit une impression d'être petit.
 
-Il n'avait pas non plus l'impression d'être trop grand ou trop petit.
+Erwan, avec le facteur 1, n'a pas remarqué ce type de problème.
 
-Cette observation constitue donc un bon point de comparaison avec les deux
-autres facteurs.
+Les changements de dimensions influencent donc la manière dont l'utilisateur
+évalue sa propre taille par rapport à l'environnement.
 
-### Thomas — facteur 2
+## Analyse
 
-Avec le facteur 2, Thomas a eu une impression pratiquement inverse de celle
-d'Hendrix.
+Le programme ne déforme pas un objet particulier.
 
-La pièce lui paraissait très grande et les objets semblaient beaucoup plus
-imposants. La table lui semblait notamment trop haute par rapport à sa propre
-taille.
+Toutes les dimensions sont multipliées par le même facteur.
 
-Son impression générale était d'être devenu **petit par rapport à
-l'environnement**.
+Les proportions internes de la scène restent donc cohérentes.
 
-Là encore, sa première interprétation ne consistait donc pas seulement à dire
-que le monde avait changé de taille : il comparait spontanément sa propre
-taille à celle du monde qui l'entourait.
+Pourtant, les réactions montrent que l'impression produite n'est pas la même.
 
-## Comparaison des observations
+Avec une échelle réduite, l'utilisateur peut interpréter le résultat comme
+s'il était devenu plus grand par rapport au monde.
 
-Les trois essais donnent des impressions assez différentes :
+À l'inverse, lorsque l'environnement est agrandi, il peut avoir l'impression
+d'être devenu plus petit.
 
-- avec le facteur **0,5**, Hendrix trouve l'environnement trop petit et a
-  l'impression d'être trop grand ;
-- avec le facteur **1**, Erwan trouve les dimensions normales et ne remarque
-  pas de problème d'échelle ;
-- avec le facteur **2**, Thomas trouve l'environnement très grand et a
-  l'impression d'être petit.
+C'est donc la relation entre l'échelle du monde et celle de l'observateur qui
+devient perceptivement incohérente.
 
-On peut résumer les observations ainsi :
+## Pourquoi les trois personnes n'ont pas reçu le facteur à l'avance
 
-**Échelle réduite → monde trop petit → impression d'être trop grand**
+Je n'ai pas annoncé les facteurs avant le test afin d'éviter de provoquer
+une réponse attendue.
 
-**Échelle normale → proportions cohérentes → impression normale**
+Dire à quelqu'un :
 
-**Échelle agrandie → monde trop grand → impression d'être trop petit**
+`la salle a été divisée par deux`
+
+l'aurait déjà orienté vers l'idée d'une petite salle.
+
+Je voulais plutôt recueillir son impression avant de révéler la valeur
+utilisée.
+
+Cela m'a permis de comparer leur perception avec le facteur réellement
+appliqué.
 
 ## Ce que j'en tire
 
-L'expérience m'a surtout permis de remarquer que les participants ne parlent
-pas uniquement de la taille du monde.
+Les trois essais donnent une progression très claire :
 
-Ils évaluent aussi leur propre taille par rapport à ce qu'ils voient.
+```text
+0,5 → Hendrix → monde trop petit → impression d'être trop grand
 
-Avec l'environnement réduit, Hendrix se sent trop grand. Avec
-l'environnement agrandi, Thomas se sent au contraire trop petit.
+1   → Erwan   → monde normal → impression normale
 
-Cela montre qu'une erreur d'échelle peut être ressentie même si la géométrie
-de la scène reste cohérente et qu'aucun objet n'est techniquement mal placé.
+2   → Thomas  → monde immense → impression d'être petit
+```
 
-Le programme peut donc fonctionner correctement tout en produisant une
-impression perceptive incorrecte.
+Le résultat le plus intéressant est donc que le cerveau ne décrit pas
+forcément uniquement le monde comme étant à la mauvaise échelle.
 
-## Pourquoi tester avec d'autres personnes ?
+L'utilisateur peut également avoir l'impression que **sa propre taille a
+changé par rapport au monde**.
 
-Cette expérience montre aussi l'intérêt de faire observer la scène par
-d'autres utilisateurs.
-
-Lorsque je connais déjà les dimensions et le facteur que j'ai appliqué, je
-sais à l'avance ce qui a changé.
-
-Hendrix, Erwan et Thomas ont au contraire observé la pièce sans connaître
-le facteur utilisé. Leurs premières impressions permettent donc de voir
-comment l'échelle est réellement perçue par quelqu'un qui découvre la scène.
+Une scène peut donc être mathématiquement cohérente, avec tous ses objets
+correctement proportionnés entre eux, tout en produisant une mauvaise
+sensation d'échelle.
 
 ## Conclusion
 
-Cette expérience m'a permis de vérifier concrètement l'effet d'un changement
-d'échelle sur la perception d'un environnement virtuel.
+J'ai utilisé un programme qui multiplie les dimensions d'une salle et de son
+mobilier par un facteur d'échelle.
 
-Avec le facteur 0,5, Hendrix a eu l'impression d'être trop grand dans une
-pièce devenue trop petite. Avec le facteur 1, Erwan a trouvé les proportions
-normales. Avec le facteur 2, Thomas a au contraire eu l'impression d'être
-petit dans un environnement devenu très grand.
+J'ai ensuite réalisé le test avec trois participants, sans leur annoncer à
+l'avance le facteur présenté.
 
-Le résultat le plus intéressant est que le changement d'échelle influence
-aussi la manière dont l'utilisateur perçoit sa propre taille par rapport
-au monde.
+Les observations recueillies sont :
 
-En réalité virtuelle, travailler avec des dimensions cohérentes en mètres
-est donc essentiel pour maintenir une relation crédible entre le corps de
-l'utilisateur et l'environnement virtuel.
+- **Hendrix, facteur 0,5** : environnement trop petit et impression d'être
+  trop grand ;
+- **Erwan, facteur 1** : environnement perçu comme normal ;
+- **Thomas, facteur 2** : environnement immense et impression d'être petit.
+
+Ces trois essais montrent que modifier l'échelle générale d'un environnement
+change aussi la manière dont l'utilisateur perçoit sa propre taille par
+rapport à ce monde.
+
+En réalité virtuelle, il ne suffit donc pas que les objets soient
+proportionnels entre eux. Leur échelle doit également rester cohérente avec
+celle du corps de l'utilisateur.
