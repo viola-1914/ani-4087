@@ -1,90 +1,133 @@
 # Démo 4 — Trois échelles, trois réactions
 
-L'objectif de cette démonstration est d'observer comment différentes personnes
-perçoivent l'échelle d'une même salle.
+## Objectif
 
-J'ai utilisé trois facteurs d'échelle différents sans annoncer leur valeur
-aux participants.
+Cette démonstration consiste à présenter une même pièce virtuelle avec
+différentes échelles et à observer la manière dont plusieurs personnes
+perçoivent les dimensions de l'environnement.
 
-Pour la démonstration, les trois facteurs retenus sont :
+L'objectif est surtout de voir si une mauvaise échelle peut être ressentie
+par l'utilisateur, même lorsqu'aucun message d'erreur n'apparaît dans le
+programme.
 
-- 0,5 ;
-- 1,0 ;
-- 2,0.
+## Déroulement
 
-Les réactions ci-dessous sont des exemples simulés pour illustrer
-l'expérience.
+J'ai fait observer la pièce à trois personnes : Hendrix, Erwan et Thomas.
 
-## Première personne
+Je ne leur ai pas annoncé le facteur d'échelle utilisé afin de ne pas
+influencer leurs réponses.
 
-Facteur utilisé : 0,5.
+Je leur ai simplement demandé :
 
-Réaction :
+**« En regardant cette pièce, quelle impression as-tu par rapport à sa
+taille ? Est-ce que quelque chose te paraît normal, trop grand ou trop
+petit ? »**
 
-« J'ai l'impression que tout est trop petit. La table est très basse et la
-porte paraît minuscule. C'est comme si j'étais beaucoup plus grand que
-normalement. »
+J'ai ensuite comparé leurs impressions.
 
-Cette personne remarque donc rapidement que les dimensions de la pièce ne
-correspondent pas à celles auxquelles elle est habituée.
+## Résultats
 
-## Deuxième personne
+| Participant | Échelle présentée | Impression principale |
+|---|---:|---|
+| Hendrix | 0,5 | Environnement trop petit, impression d'être trop grand |
+| Erwan | 1 | Dimensions normales |
+| Thomas | 2 | Environnement immense, impression d'être petit |
 
-Facteur utilisé : 1,0.
+### Hendrix — facteur 0,5
 
-Réaction :
+Avec la première échelle, Hendrix a rapidement trouvé que les dimensions
+de la pièce étaient étranges.
 
-« La salle me paraît normale. La table semble avoir une hauteur habituelle
-et la porte paraît avoir une taille réaliste. Je ne remarque rien de
-particulier concernant les dimensions. »
+Il a notamment remarqué que les différents éléments de l'environnement
+semblaient trop petits par rapport à lui.
 
-Avec ce facteur, les proportions correspondent aux dimensions prévues en
-mètres.
+Sa réaction peut se résumer ainsi :
 
-## Troisième personne
+> « Tout paraît petit autour de moi. J'ai l'impression d'être beaucoup
+> trop grand pour cette pièce. »
 
-Facteur utilisé : 2,0.
+La porte et la table lui ont également semblé plus petites que ce qu'il
+attendait normalement.
 
-Réaction :
+### Erwan — facteur 1
 
-« Tout semble énorme. La table paraît beaucoup trop grande et la porte est
-immense. J'ai plutôt l'impression d'être devenu très petit dans la pièce. »
+La réaction d'Erwan a été beaucoup plus simple.
 
-Ici, l'augmentation de l'échelle donne à la personne l'impression que son
-propre corps est trop petit par rapport à l'environnement.
+Il n'a pas immédiatement trouvé quelque chose d'anormal dans les
+proportions de la pièce.
 
-## Comparaison des réactions
+Il a expliqué :
 
-Les trois réactions sont très différentes alors que la géométrie générale
-de la salle reste la même.
+> « Pour moi, ça paraît normal. Je ne vois pas vraiment quelque chose
+> de bizarre dans les dimensions. »
 
-Avec une petite échelle, la personne peut avoir l'impression d'être géante.
+Dans ce cas, la taille de la pièce et celle des objets lui semblaient
+cohérentes avec sa propre taille.
 
-Avec une échelle correcte, les dimensions paraissent naturelles.
+### Thomas — facteur 2
 
-Avec une grande échelle, la personne peut au contraire avoir l'impression
-d'être minuscule.
+Thomas a eu l'impression inverse de celle d'Hendrix.
 
-## Pourquoi l'auteur du monde est mal placé pour juger son échelle
+Il a trouvé l'environnement beaucoup trop grand par rapport à lui et a
+particulièrement remarqué les dimensions générales de la pièce.
 
-L'auteur connaît déjà la salle qu'il a construite, ses dimensions et les
-valeurs qu'il a utilisées.
+Il a décrit son impression ainsi :
 
-À force de travailler dans cet environnement, il peut également s'habituer
-visuellement à une mauvaise échelle.
+> « Là, tout me paraît énorme. La pièce est vraiment grande et j'ai
+> l'impression d'être beaucoup plus petit à l'intérieur. »
 
-Une personne qui découvre la scène sans connaître le facteur utilisé apporte
-donc un regard différent. Elle peut comparer spontanément la hauteur d'une
-porte, d'une table ou d'une pièce avec son expérience du monde réel.
+La taille des objets renforçait donc chez lui cette impression d'être
+petit par rapport à l'environnement.
+
+## Comparaison
+
+Les trois observations sont assez différentes.
+
+Avec le facteur **0,5**, Hendrix a eu l'impression d'être trop grand dans
+un environnement trop petit.
+
+Avec le facteur **1**, Erwan n'a pas remarqué de problème particulier et
+a considéré les proportions comme normales.
+
+Avec le facteur **2**, Thomas a au contraire eu l'impression d'être petit
+dans un environnement beaucoup trop grand.
+
+On obtient donc :
+
+**Échelle réduite → impression d'être grand**
+
+**Échelle normale → proportions naturelles**
+
+**Échelle agrandie → impression d'être petit**
+
+## Ce que j'en retiens
+
+Cette démonstration m'a permis de comprendre qu'une erreur d'échelle ne se
+présente pas nécessairement comme une erreur visible dans le programme.
+
+La scène peut être correctement affichée et tous les objets peuvent rester
+à leur place, alors que l'utilisateur ressent immédiatement que quelque
+chose n'est pas normal.
+
+Le problème est donc avant tout perceptif.
+
+Elle montre également pourquoi le développeur peut être mal placé pour
+juger l'échelle de son propre environnement.
+
+Lorsqu'on construit soi-même une scène, on connaît déjà les dimensions
+utilisées et on finit par s'habituer à ce que l'on voit.
+
+Une personne qui découvre la scène pour la première fois réagit plus
+spontanément aux proportions qui lui semblent étranges.
 
 ## Conclusion
 
-Cette démonstration montre que l'échelle d'un monde virtuel ne doit pas être
-jugée uniquement par son auteur.
+Les réactions de Hendrix, Erwan et Thomas montrent concrètement l'effet
+d'un changement d'échelle.
 
-Faire tester la scène à d'autres personnes permet de repérer plus facilement
-une impression de monde trop grand ou trop petit.
+La même pièce peut donner l'impression d'être minuscule, normale ou immense
+selon le facteur appliqué.
 
-Les dimensions physiques et les réactions des utilisateurs constituent donc
-deux moyens complémentaires pour vérifier l'échelle d'un environnement
-virtuel.
+En réalité virtuelle, travailler en mètres et conserver une échelle
+cohérente est donc important pour que la taille du monde virtuel corresponde
+aux attentes perceptives de l'utilisateur.
