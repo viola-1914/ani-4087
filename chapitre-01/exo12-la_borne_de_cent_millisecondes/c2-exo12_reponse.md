@@ -11,7 +11,7 @@ deux valeurs :
   progressivement.
 
 L'objectif est de mesurer comment l'erreur évolue avec la durée
-d'extrapolation et de voir où la borne de 100 ms peut se justifier.
+d'extrapolation et de voir où la borne de **100 ms** peut se justifier.
 
 ## Code C++
 
@@ -122,8 +122,8 @@ Ce choix ne change pas le principe de l'expérience : dans les deux cas, il
 s'agit de comparer une prédiction qui suppose une vitesse constante à un
 mouvement simulé qui ralentit progressivement.
 
-Il change cependant les valeurs numériques obtenues. Les résultats qui
-suivent correspondent donc à mon test effectué à **90°/s**.
+Il change cependant les valeurs numériques obtenues. Les résultats présentés
+dans cet exercice correspondent donc à mon test effectué à **90°/s**.
 
 ## Exécution du programme
 
@@ -137,7 +137,7 @@ J'ai exécuté le programme pour les durées suivantes :
 - 500 ms ;
 - 1000 ms.
 
-Le programme m'a fourni les valeurs suivantes.
+Le programme m'a fourni les résultats suivants :
 
 | Durée | Angle extrapolé | Angle réel simulé | Erreur |
 |---:|---:|---:|---:|
@@ -149,34 +149,219 @@ Le programme m'a fourni les valeurs suivantes.
 | 500 ms | 45,000° | 28,474° | **16,526°** |
 | 1000 ms | 90,000° | 38,949° | **51,051°** |
 
+Ces résultats permettent de voir directement comment l'erreur augmente lorsque
+la durée d'extrapolation devient plus importante.
+
 ## Courbe de l'erreur
 
-À partir des valeurs mesurées, la courbe de l'erreur est croissante.
+À partir des valeurs obtenues lors de l'exécution du programme, j'ai tracé
+la courbe de l'erreur d'orientation en fonction de la durée d'extrapolation.
+
+![Courbe de l'erreur d'extrapolation](courbe-erreur.png)
+
+Sur cette courbe :
+
+- l'axe horizontal représente la **durée d'extrapolation en millisecondes** ;
+- l'axe vertical représente l'**erreur d'orientation en degrés** ;
+- les points correspondent aux erreurs réellement obtenues avec le programme ;
+- la ligne verticale à **100 ms** permet de repérer la borne étudiée dans
+  l'exercice.
+
+Les points utilisés pour construire la courbe sont :
+
+| Durée d'extrapolation | Erreur d'orientation |
+|---:|---:|
+| 10 ms | 0,008° |
+| 20 ms | 0,034° |
+| 50 ms | 0,213° |
+| 100 ms | 0,835° |
+| 200 ms | 3,150° |
+| 500 ms | 16,526° |
+| 1000 ms | 51,051° |
+
+## Lecture de la courbe
+
+La courbe montre d'abord une erreur très faible pour les extrapolations
+courtes.
+
+À **10 ms**, j'obtiens seulement :
+
+`0,008°`
+
+À **20 ms**, l'erreur est de :
+
+`0,034°`
+
+À **50 ms**, elle atteint :
+
+`0,213°`
+
+À **100 ms**, l'erreur mesurée est :
+
+`0,835°`
+
+Elle reste donc encore inférieure à un degré dans cette simulation.
+
+Au-delà de cette zone, l'augmentation devient beaucoup plus importante.
+
+À **200 ms**, l'erreur atteint :
+
+`3,150°`
+
+À **500 ms**, elle atteint :
+
+`16,526°`
+
+Et à **1000 ms**, elle atteint :
+
+`51,051°`
+
+La courbe montre donc clairement que prolonger l'extrapolation augmente
+fortement le risque que la pose prédite s'éloigne de la pose réelle simulée.
+
+## Où la borne de 100 ms se justifie-t-elle ?
+
+Les valeurs numériques permettent de mieux comprendre la borne de 100 ms.
+
+Autour de cette borne, j'obtiens :
 
 ```text
-Erreur
-(degrés)
-
-  55 |                                      ● 51,051
-  50 |
-  45 |
-  40 |
-  35 |
-  30 |
-  25 |
-  20 |
-  15 |                         ● 16,526
-  10 |
-   5 |              ● 3,150
-   1 |       ● 0,835
- 0,5 |    ● 0,213
-   0 | ● ●
-     +-----------------------------------------------
-       10 20  50  100   200      500          1000
-                     Durée (ms)
+50 ms   -> 0,213°
+100 ms  -> 0,835°
+200 ms  -> 3,150°
 ```
 
-Les points représentés sur cette courbe correspondent aux erreurs mesurées :
+Entre **50 ms et 100 ms**, l'erreur augmente de :
+
+`0,835° - 0,213° = 0,622°`
+
+Entre **100 ms et 200 ms**, elle augmente de :
+
+`3,150° - 0,835° = 2,315°`
+
+L'augmentation devient donc beaucoup plus importante après la zone des
+100 ms.
+
+À 100 ms, mon erreur reste inférieure à un degré avec **0,835°**.
+
+En doublant la durée pour atteindre 200 ms, elle passe déjà à **3,150°**.
+
+La courbe ne montre cependant pas une cassure brutale exactement à 100 ms.
+
+Dans cette expérience, 100 ms n'est donc pas un seuil mathématique précis
+où l'extrapolation deviendrait soudainement incorrecte.
+
+Je l'interprète plutôt comme une **borne prudente** placée avant la zone où
+l'erreur augmente rapidement.
+
+## Pourquoi 100 ms plutôt que 50 ms ou 200 ms ?
+
+Les résultats donnent une réponse numérique à cette question.
+
+À **50 ms**, l'erreur n'est que de :
+
+`0,213°`
+
+Cette durée se trouve encore dans une zone où la différence entre le mouvement
+prédit et le mouvement simulé reste très faible.
+
+À **100 ms**, l'erreur atteint :
+
+`0,835°`
+
+Elle reste inférieure à un degré, mais la courbe commence à s'élever.
+
+À **200 ms**, elle atteint déjà :
+
+`3,150°`
+
+La différence devient donc beaucoup plus importante.
+
+Dans mon expérience, choisir une borne à 100 ms permet ainsi de rester avant
+la forte augmentation observée entre 100 et 200 ms.
+
+Cette valeur constitue donc une limite de sécurité raisonnable pour éviter
+d'extrapoler trop loin.
+
+## Pourquoi l'erreur augmente
+
+L'extrapolation utilisée dans le programme suppose que la vitesse actuelle
+reste constante :
+
+`vitesse future = vitesse actuelle`
+
+Cette hypothèse peut être raisonnable sur une courte durée.
+
+Mais dans ma simulation, la vitesse réelle diminue progressivement selon le
+facteur :
+
+`exp(-2t)`
+
+La prédiction continue donc à avancer comme si la tête tournait toujours à
+90°/s, alors que la simulation ralentit progressivement.
+
+Plus la durée augmente, plus la différence entre les deux mouvements devient
+grande.
+
+Par exemple, après une seconde, l'extrapolation prévoit :
+
+`90,000°`
+
+alors que le mouvement ralenti simulé donne :
+
+`38,949°`
+
+L'écart atteint donc :
+
+`51,051°`
+
+Cela montre pourquoi une extrapolation à vitesse constante ne doit pas être
+prolongée trop loin dans le futur.
+
+## Interprétation pour la VR
+
+Dans un système VR, l'extrapolation permet d'estimer la position ou
+l'orientation future de la tête afin de compenser une partie de la latence.
+
+Sur une durée très courte, le mouvement n'a pas beaucoup de temps pour changer.
+La vitesse actuelle peut donc fournir une approximation utile de la pose
+future.
+
+Mais plus la prédiction porte loin dans le futur, plus l'utilisateur a le
+temps de ralentir, d'accélérer ou de changer de direction.
+
+L'hypothèse de vitesse constante devient alors progressivement moins fiable.
+
+Une extrapolation trop longue pourrait donc produire une pose prédite plus
+éloignée de la vraie pose que celle obtenue avec une prédiction plus courte.
+
+La borne sert ainsi à empêcher le système de continuer à extrapoler lorsque
+la prédiction devient trop incertaine.
+
+## Limite de mon expérience
+
+La valeur de 100 ms ne constitue pas un seuil universel démontré par cette
+seule simulation.
+
+Mon expérience utilise :
+
+- une vitesse initiale de 90°/s ;
+- un mouvement qui ralentit selon `exp(-2t)` ;
+- une simulation numérique avec un pas de 1 ms.
+
+Avec un autre mouvement, par exemple une accélération ou un changement brutal
+de direction, la forme de la courbe pourrait être différente.
+
+Ce que mon expérience montre surtout, c'est que l'erreur augmente avec
+l'horizon de prédiction et qu'il devient nécessaire de borner
+l'extrapolation.
+
+## Conclusion
+
+L'exécution du programme m'a permis de mesurer directement l'erreur
+d'extrapolation pour plusieurs durées.
+
+Pour mon test à **90°/s**, j'ai obtenu :
 
 ```text
 10 ms    -> 0,008°
@@ -188,144 +373,17 @@ Les points représentés sur cette courbe correspondent aux erreurs mesurées :
 1000 ms  -> 51,051°
 ```
 
-## Analyse de la courbe
+La courbe obtenue ne présente pas une cassure brutale exactement à 100 ms.
 
-Les valeurs permettent maintenant de remplacer les appréciations qualitatives
-par des mesures.
+Elle montre une augmentation progressive de l'erreur, qui devient beaucoup
+plus importante au-delà de cette zone.
 
-À **10 ms**, l'erreur n'est que de :
-
-`0,008°`
-
-À **20 ms**, elle atteint :
-
-`0,034°`
-
-À **50 ms**, elle vaut :
-
-`0,213°`
-
-À **100 ms**, elle atteint :
-
-`0,835°`
-
-Puis elle augmente beaucoup plus fortement :
-
-- **3,150° à 200 ms** ;
-- **16,526° à 500 ms** ;
-- **51,051° à 1000 ms**.
-
-L'erreur est donc multipliée par presque quatre entre 100 ms et 200 ms :
-
-`0,835° -> 3,150°`
-
-Elle devient ensuite beaucoup plus importante lorsque l'extrapolation est
-prolongée.
-
-## Où la borne de 100 ms se justifie-t-elle ?
-
-Dans mon expérience, la courbe ne présente pas une cassure brutale exactement
-à **100 ms**.
-
-L'erreur augmente progressivement.
-
-Cependant, les nombres montrent que la borne de 100 ms se situe avant une
-augmentation beaucoup plus importante de l'erreur.
-
-J'obtiens :
-
-```text
-50 ms   -> 0,213°
-100 ms  -> 0,835°
-200 ms  -> 3,150°
-500 ms  -> 16,526°
-```
-
-À 100 ms, l'erreur reste inférieure à un degré dans ma simulation :
-**0,835°**.
-
-En doublant seulement la durée pour atteindre 200 ms, elle passe déjà à
-**3,150°**.
-
-La borne de 100 ms ne correspond donc pas, dans mon expérience, à un seuil
-mathématique précis où la courbe se casse.
-
-Je l'interprète plutôt comme une **borne de sécurité** placée avant la zone
-où l'erreur commence à augmenter rapidement.
-
-## Pourquoi l'erreur augmente
-
-L'extrapolation suppose :
-
-`vitesse future = vitesse actuelle`
-
-Cette hypothèse peut fonctionner sur une courte durée.
-
-Mais dans ma simulation, la vitesse réelle diminue progressivement selon :
-
-`exp(-2t)`
-
-Plus je prédis loin dans le futur, plus la différence entre la vitesse
-supposée constante et la vitesse réelle devient importante.
-
-Par exemple, l'extrapolation prévoit après une seconde :
-
-`90,000°`
-
-alors que la simulation du mouvement ralenti donne :
-
-`38,949°`
-
-La différence atteint donc :
-
-`51,051°`
-
-Une extrapolation trop longue devient ainsi très éloignée du mouvement
-simulé.
-
-## Interprétation pour la VR
-
-Dans un système VR, l'extrapolation sert à estimer où se trouvera la tête
-quelques millisecondes plus tard.
-
-Sur une courte durée, cette prédiction peut être utile parce que le mouvement
-n'a pas encore eu beaucoup de temps pour changer.
-
-Mais sur une durée plus longue, l'utilisateur peut ralentir, accélérer ou
-changer de direction.
-
-Une extrapolation basée uniquement sur la vitesse actuelle devient alors de
-moins en moins fiable.
-
-C'est pour cette raison qu'il est nécessaire de limiter la durée sur laquelle
-on accepte de prédire le mouvement.
-
-## Conclusion
-
-L'exécution du programme montre numériquement que l'erreur d'extrapolation
-augmente avec la durée.
-
-Pour mon test à **90°/s**, j'ai mesuré :
-
-```text
-0,008° à 10 ms
-0,034° à 20 ms
-0,213° à 50 ms
-0,835° à 100 ms
-3,150° à 200 ms
-16,526° à 500 ms
-51,051° à 1000 ms
-```
-
-La courbe ne se casse pas exactement à 100 ms. Elle montre plutôt une
-augmentation progressive qui devient rapidement importante au-delà de cette
-zone.
+À **100 ms**, l'erreur est encore de **0,835°**, alors qu'elle atteint déjà
+**3,150° à 200 ms**, puis **16,526° à 500 ms**.
 
 Dans cette simulation, la borne de **100 ms** apparaît donc comme une limite
-prudente : à cet instant l'erreur est encore inférieure à un degré
-(**0,835°**), alors qu'elle atteint déjà **3,150° à 200 ms** et augmente
-fortement ensuite.
+prudente placée avant une augmentation importante de l'erreur.
 
-Cette expérience me permet donc de justifier la borne à partir des valeurs
-mesurées et de la forme de la courbe, et non seulement à partir d'une
-appréciation qualitative de l'erreur.
+Cette expérience permet ainsi de justifier la borne à partir de **valeurs
+mesurées et d'une courbe**, et non seulement à partir d'une appréciation
+qualitative de l'extrapolation.
