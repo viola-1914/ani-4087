@@ -9,7 +9,8 @@ Chaque articulation est exprimée dans le repère de son parent :
 - le coude est à 0,40 m de l'épaule ;
 - la main est à 0,35 m du coude.
 
-La pose dans le monde est obtenue en composant les poses successives.
+La pose dans le monde est obtenue en composant successivement les poses
+de l'épaule, du coude et de la main.
 
 ## Code C++
 
@@ -71,7 +72,7 @@ Quaternion multiplierQuaternion(
     };
 }
 
-// parent * locale
+// Composition : parent * locale
 Pose composer(const Pose& parent, const Pose& locale)
 {
     Vec3 p = rotationQuaternion(
@@ -135,6 +136,7 @@ int main()
     std::cout << std::fixed << std::setprecision(4);
 
     std::cout << "Avant rotation\n";
+
     std::cout << "Coude : "
               << coudeMonde.position.x << " "
               << coudeMonde.position.y << " "
@@ -167,26 +169,117 @@ int main()
 }
 ```
 
-## Résultat attendu
+## Prédiction avant l'exécution
 
-Avant la rotation de l'épaule, le coude et la main sont alignés :
+Avant de lancer le programme, j'ai essayé de prévoir les positions.
 
-- coude : environ `(0.4000, 0.0000, 0.0000)`
-- main : environ `(0.7500, 0.0000, 0.0000)`
+Au départ, le bras est entièrement aligné sur l'axe X positif.
 
-Lorsque je fais tourner l'épaule de 90 degrés autour de l'axe Y, la position
-du coude change et la main suit également le mouvement.
+Le coude se trouve à 0,40 m de l'épaule. La main est encore à 0,35 m du
+coude, donc elle se trouve à :
 
-Cela montre que la pose de la main dépend de celle du coude, qui dépend
-elle-même de celle de l'épaule.
+`0,40 + 0,35 = 0,75 m`
+
+de l'épaule.
+
+Je prévois donc avant rotation :
+
+- coude : `(0.4000, 0.0000, 0.0000)`
+- main : `(0.7500, 0.0000, 0.0000)`
+
+Je fais ensuite tourner l'épaule de +90 degrés autour de Y.
+
+Avec la convention utilisée par mon quaternion et ma fonction de rotation,
+un vecteur dirigé vers +X tourne alors vers -Z.
+
+Je prévois donc après rotation :
+
+- coude : `(0.0000, 0.0000, -0.4000)`
+- main : `(0.0000, 0.0000, -0.7500)`
+
+## Exécution du programme
+
+J'ai ensuite compilé et lancé le programme.
+
+### Avant rotation
+
+Le programme affiche :
+
+```text
+Avant rotation
+Coude : 0.4000 0.0000 0.0000
+Main : 0.7500 0.0000 0.0000
+```
+
+Les positions mesurées sont donc :
+
+- coude : `(0.4000, 0.0000, 0.0000)`
+- main : `(0.7500, 0.0000, 0.0000)`
+
+### Après rotation de l'épaule
+
+Après la rotation de 90 degrés autour de Y, le programme affiche :
+
+```text
+Apres rotation de l'epaule
+Coude : 0.0000 0.0000 -0.4000
+Main : 0.0000 0.0000 -0.7500
+```
+
+Les nouvelles positions sont donc :
+
+- coude : `(0.0000, 0.0000, -0.4000)`
+- main : `(0.0000, 0.0000, -0.7500)`
+
+## Comparaison entre ma prédiction et l'exécution
+
+| Articulation | Prédiction | Résultat affiché |
+|---|---|---|
+| Coude avant rotation | `(0.4000, 0.0000, 0.0000)` | `(0.4000, 0.0000, 0.0000)` |
+| Main avant rotation | `(0.7500, 0.0000, 0.0000)` | `(0.7500, 0.0000, 0.0000)` |
+| Coude après rotation | `(0.0000, 0.0000, -0.4000)` | `(0.0000, 0.0000, -0.4000)` |
+| Main après rotation | `(0.0000, 0.0000, -0.7500)` | `(0.0000, 0.0000, -0.7500)` |
+
+Ma prédiction et les valeurs affichées par le programme coïncident.
+
+Ce résultat me permet surtout de vérifier que la transformation de l'épaule
+se propage correctement au reste de la chaîne.
+
+La position locale du coude reste `(0.40, 0, 0)` et celle de la main reste
+`(0.35, 0, 0)`, mais leurs positions dans le monde changent parce qu'elles
+héritent de l'orientation de leur parent.
+
+## Ce que j'observe
+
+Avant la rotation, les trois articulations sont alignées sur X :
+
+```text
+épaule ---- 0,40 m ---- coude ---- 0,35 m ---- main
+   0                         0,40                 0,75
+```
+
+Après la rotation de l'épaule, le bras entier est orienté vers -Z.
+
+Le coude se retrouve à 0,40 m de l'épaule dans cette direction et la main
+à 0,75 m.
+
+La main suit donc le coude, et le coude suit l'épaule, sans que j'aie besoin
+de modifier leurs positions locales.
 
 ## Conclusion
 
-Une articulation enfant hérite des transformations de son parent.
+L'expérience confirme qu'une articulation enfant hérite des transformations
+de son parent.
 
-Ainsi, lorsque l'épaule tourne, le coude est déplacé dans le monde et la main
-suit automatiquement, même si les poses locales du coude et de la main
-n'ont pas changé.
+Lorsque je tourne uniquement l'épaule de 90 degrés autour de Y, le coude
+passe de `(0.4000, 0.0000, 0.0000)` à
+`(0.0000, 0.0000, -0.4000)`.
 
-La composition des poses permet donc de construire naturellement une chaîne
-articulée.
+La main passe en même temps de `(0.7500, 0.0000, 0.0000)` à
+`(0.0000, 0.0000, -0.7500)`.
+
+Les positions locales du coude et de la main n'ont pourtant pas changé.
+
+C'est la composition successive des poses
+**épaule → coude → main** qui propage la transformation dans toute la
+chaîne articulée.
