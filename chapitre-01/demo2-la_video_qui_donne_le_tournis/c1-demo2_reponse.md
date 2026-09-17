@@ -11,76 +11,85 @@ grande partie du champ visuel.
 
 ## Déroulement
 
-La vidéo est lancée devant la classe.
+J'ai montré la séquence à trois personnes : Hendrix, Erwan et Thomas.
 
-Pendant la séquence, chacun reste assis ou immobile et observe simplement
-l'écran.
+Pendant la vidéo, ils sont restés immobiles devant l'écran. À la fin,
+je leur ai demandé ce qu'ils avaient ressenti pendant le mouvement de
+l'image, sans leur proposer de réponse à l'avance.
 
-Après la vidéo, les réactions peuvent être recueillies en demandant :
+## Réactions recueillies
 
-**« Qu'avez-vous ressenti pendant le mouvement de l'image ? »**
+Les trois personnes n'ont pas décrit exactement la même sensation.
 
-Il est également important de demander :
+| Participant | Réaction rapportée |
+|---|---|
+| Hendrix | Vertige |
+| Erwan | Fatigue des yeux et envie de détourner le regard |
+| Thomas | Impression de mouvement et fatigue des yeux |
 
-**« Qui n'a absolument rien ressenti ? »**
+### Hendrix
 
-Cette deuxième question est utile parce que tout le monde ne réagit pas
-de la même manière au même stimulus visuel.
+Hendrix a principalement signalé une sensation de **vertige** pendant
+la séquence.
 
-## Observations
+Sa réaction montre que le mouvement visible à l'écran peut provoquer une
+sensation physique alors même que la personne reste immobile.
 
-Les réactions doivent être notées telles qu'elles sont réellement exprimées.
+### Erwan
 
-Exemples de catégories à relever :
+Erwan a surtout parlé de **fatigue au niveau des yeux**. À un certain
+moment, il avait également **envie de détourner le regard** de l'écran.
 
-- sensation de mouvement ;
-- léger vertige ;
-- impression d'instabilité ;
-- fatigue visuelle ;
-- envie de détourner le regard ;
-- aucune sensation particulière.
+Sa réaction était donc davantage liée à l'inconfort visuel qu'à une
+sensation nette de vertige.
 
-Il ne faut pas considérer l'absence de gêne comme un mauvais résultat :
-elle montre simplement que la sensibilité au conflit sensoriel varie
-d'une personne à l'autre.
+### Thomas
 
-## Explication
+Thomas a décrit une **impression de mouvement**, accompagnée d'une
+**fatigue des yeux**.
 
-Pendant la démonstration, les yeux voient une scène en mouvement alors
-que la personne reste physiquement immobile.
+Ce qui est intéressant dans son cas, c'est qu'il savait qu'il était
+physiquement immobile, mais l'image lui donnait malgré tout une sensation
+de déplacement.
 
-Les informations visuelles peuvent donc suggérer un déplacement que le
-système vestibulaire ne confirme pas de la même manière.
+## Analyse
 
-Il apparaît alors une incohérence entre les différentes informations
-sensorielles utilisées par le cerveau pour déterminer le mouvement et
-l'orientation du corps.
+Les réactions sont différentes, mais elles ont un point commun : le
+mouvement présenté à l'écran a produit une sensation alors que les
+participants étaient eux-mêmes immobiles.
 
-Cette situation aide à comprendre pourquoi certaines expériences en
-réalité virtuelle peuvent provoquer une gêne ou un malaise.
+Les yeux recevaient des informations visuelles indiquant un mouvement,
+alors que le corps et le système vestibulaire ne confirmaient pas ce
+déplacement de la même manière.
+
+Cette incohérence entre les informations sensorielles aide à comprendre
+l'apparition de sensations comme le vertige, la fatigue visuelle,
+l'impression de mouvement ou l'envie de détourner le regard.
+
+Les trois réactions montrent également que tout le monde ne manifeste pas
+l'inconfort de la même manière.
 
 ## Lien avec la réalité virtuelle
 
-Dans un casque VR, l'image occupe une partie beaucoup plus importante du
-champ visuel qu'un écran ordinaire.
+Dans un casque de réalité virtuelle, l'image occupe une grande partie du
+champ visuel et réagit directement aux mouvements de la tête.
 
-Le système doit donc maintenir une bonne cohérence entre les mouvements
-réels de la tête et les changements visibles dans l'image.
+Il est donc particulièrement important que les informations visuelles
+restent cohérentes avec les mouvements réellement effectués par
+l'utilisateur.
 
-Un décalage ou un mouvement visuel qui ne correspond pas suffisamment
-aux sensations physiques peut augmenter l'inconfort chez certains
-utilisateurs.
+Un décalage important entre ce que la personne voit et ce que son corps
+ressent peut contribuer à l'inconfort.
 
 ## Conclusion
 
-Cette démonstration montre que la vision peut donner une impression de
-mouvement alors que le corps reste immobile.
+Cette démonstration m'a permis de constater trois réactions différentes
+face à la même séquence.
 
-Elle montre aussi un deuxième résultat important : les personnes ne
-réagissent pas toutes de la même manière.
+Hendrix a surtout ressenti un vertige, Erwan une fatigue des yeux avec
+l'envie de détourner le regard, tandis que Thomas a signalé une impression
+de mouvement accompagnée de fatigue visuelle.
 
-Certaines peuvent ressentir rapidement une gêne, tandis que d'autres
-peuvent regarder la même séquence sans ressentir de malaise particulier.
-
-Cette différence entre utilisateurs doit être prise en compte lors de
-la conception d'une expérience de réalité virtuelle.
+L'expérience montre ainsi que le conflit entre les informations visuelles
+et les sensations corporelles peut être ressenti différemment selon les
+personnes.
