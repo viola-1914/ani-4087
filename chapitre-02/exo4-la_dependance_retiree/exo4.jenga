@@ -1,0 +1,16 @@
+from Jenga import *
+
+with workspace("Exo4"):
+    configurations(["Debug", "Release"])
+    targetoses([TargetOS.WINDOWS, TargetOS.LINUX, TargetOS.MACOS])
+    targetarchs([TargetArch.X86_64])
+
+    with project("App"):
+        consoleapp()
+        language("C++")
+        cppdialect("C++17")
+        # moduleA.cpp depend de moduleB.cpp (appel a carre()).
+        # "src/moduleB.cpp" a ete retire de la liste : l'edition de liens echoue.
+        # Pour retrouver un build qui marche, ajoutez-le a nouveau :
+        # files(["src/main.cpp", "src/moduleA.cpp", "src/moduleB.cpp"])
+        files(["src/main.cpp", "src/moduleA.cpp"])
