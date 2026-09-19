@@ -1,0 +1,17 @@
+from Jenga import *
+
+with workspace("Exo6"):
+    configurations(["Debug", "Release"])
+    targetoses([TargetOS.WINDOWS, TargetOS.LINUX, TargetOS.MACOS])
+    targetarchs([TargetArch.X86_64])
+
+    with project("App"):
+        consoleapp()
+        language("C++")
+        cppdialect("C++17")
+        files(["src/main.cpp"])
+
+        # Cas 1 (condition fausse sur ma machine Windows) : with filter("system:Linux"):
+        # Cas 2 (condition vraie sur ma machine Windows)  : with filter("system:Windows"):
+        with filter("system:Windows"):
+            defines(["FILTRE_ACTIF"])
