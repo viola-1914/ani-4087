@@ -1,0 +1,15 @@
+from Jenga import *
+
+with workspace("Exo5"):
+    configurations(["Debug", "Release"])
+    targetoses([TargetOS.WINDOWS, TargetOS.LINUX, TargetOS.MACOS])
+    targetarchs([TargetArch.X86_64])
+
+    with project("App"):
+        consoleapp()
+        language("C++")
+        cppdialect("C++17")
+        files(["src/main.cpp"])
+        # Avec cette ligne : Compteur est une classe complete, le build reussit.
+        # Commentez-la : Compteur devient une coquille vide, la compilation echoue.
+        # defines(["AVEC_COMPTEUR"])
