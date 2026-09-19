@@ -1,0 +1,41 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║                ██╗███████╗███╗   ██╗ ██████╗  █████╗             ║
+║                ██║██╔════╝████╗  ██║██╔════╝ ██╔══██╗            ║
+║                ██║█████╗  ██╔██╗ ██║██║  ███╗███████║            ║
+║           ██   ██║██╔══╝  ██║╚██╗██║██║   ██║██╔══██║            ║
+║           ╚█████╔╝███████╗██║ ╚████║╚██████╔╝██║  ██║            ║
+║            ╚════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝            ║
+║                                                                  ║
+║             Multi-platform C/C++ Build System v2.8.0             ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+========================= Jenga Workspace: MaSalleWks ==========================
+
+Location: C:\Users\HP\Documents\GitHub\ani-4087\chapitre-02\exo1-le_projet_minimal
+Entry file: C:\Users\HP\Documents\GitHub\ani-4087\chapitre-02\exo1-le_projet_minimal\MaSalle.jenga
+Configurations: Debug, Release
+Platforms: Windows
+Target OSes: 
+Target Architectures: 
+
+
+Projects
+------------------------------------------------------------
+Name      Kind          Language   Test   External
+==================================================
+MaSalle   WindowedApp   C++        No     No
+
+
+Available Toolchains
+------------------------------------------------------------
+Name       Family   Target OS   Arch     Env  
+==============================================
+host-gcc   gcc      Windows     x86_64   mingw
+mingw      gcc      Windows     x86_64   mingw
+
+
+Daemon
+------------------------------------------------------------
+Status: Not running
