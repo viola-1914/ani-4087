@@ -1,0 +1,22 @@
+from Jenga import *
+
+with workspace("Exo10"):
+    configurations(["Debug", "Release"])
+    targetoses([TargetOS.WINDOWS, TargetOS.LINUX, TargetOS.MACOS])
+    targetarchs([TargetArch.X86_64])
+
+    with project("App"):
+        consoleapp()
+        language("C++")
+        cppdialect("C++17")
+        files(["src/main.cpp"])
+
+        with filter("config:Debug"):
+            defines(["_DEBUG"])
+            optimize("Off")
+            symbols(True)
+
+        with filter("config:Release"):
+            defines(["NDEBUG"])
+            optimize("Speed")
+            symbols(False)
