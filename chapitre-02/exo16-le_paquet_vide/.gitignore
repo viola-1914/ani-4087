@@ -1,0 +1,7 @@
+Build/
+build/
+.jenga/
+dist/
+*.apk
+*.jks
+pyrightconfig.json
