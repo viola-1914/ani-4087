@@ -1,0 +1,16 @@
+from Jenga import *
+
+with workspace("Exo9"):
+    configurations(["Debug", "Release"])
+    targetoses([TargetOS.WINDOWS, TargetOS.LINUX, TargetOS.MACOS])
+    targetarchs([TargetArch.X86_64])
+
+    with project("App"):
+        consoleapp()
+        language("C++")
+        cppdialect("C++17")
+        # "src/modules/**.cpp" ne correspond a aucun fichier : le dossier n'existe pas.
+        files(["src/main.cpp", "src/modules/**.cpp"])
+        
+        # "include_absent" n'existe pas sur le disque.
+        includedirs(["include_absent"])
