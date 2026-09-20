@@ -1,0 +1,29 @@
+# ============================================================
+#  .gitignore — racine du depot ani-4087
+# ============================================================
+
+# ----- Cles de signature : ne JAMAIS les pousser (exercice 15) -----
+*.jks
+*.keystore
+*.p12
+*.pfx
+
+# ----- Fichiers produits par Jenga -----
+Build/
+build/
+.jenga/
+pyrightconfig.json
+
+# ----- Fichiers produits par le compilateur -----
+*.obj
+*.o
+*.exe
+*.pdb
+*.ilk
+
+# ----- Editeurs et systeme -----
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
