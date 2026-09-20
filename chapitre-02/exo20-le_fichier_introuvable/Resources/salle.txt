@@ -1,0 +1,4 @@
+Salle 1 : le plan de MaSalle
+Murs : 4
+Porte : 1
+Fenetres : 2
