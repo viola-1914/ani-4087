@@ -92,6 +92,10 @@ with workspace("MaSalleWks", location="."):
             optimize("Speed")
 ```
 
+## Le programme
+
+`src/main.cpp` n'est plus vide : il salue avant de s'arrêter. Comme `MaSalle` est une application fenêtrée, elle n'a pas de console sous Windows et un `std::cout` ne s'afficherait nulle part. Sous Windows, le programme ouvre donc une boîte de message avec `MessageBoxW`, qui vient de `user32`, déjà lié par le filtre Windows. Sous Linux, il écrit le même message sur la sortie standard.
+
 ## D'où viennent les chapitres
 
 Les titres sont ceux des sprints 3 à 17 annoncés sur la plateforme du cours. Pour chacun, j'ai cherché dans le dépôt Nkentseu ce qu'il faudra ajouter au projet : le registre des modules (`config/modules.jenga`), le projet du module XR (`Kernel/Runtime/NKXR/NKXR.jenga`), la démonstration XR lue à l'exercice 11 et la feuille de route `XR_MISSION_IA.md`.
