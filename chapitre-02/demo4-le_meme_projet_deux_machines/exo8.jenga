@@ -1,0 +1,22 @@
+from Jenga import *
+
+with workspace("Exo8"):
+    configurations(["Debug", "Release"])
+    targetoses([TargetOS.WINDOWS, TargetOS.LINUX])
+    targetarchs([TargetArch.X86_64])
+
+    with project("App"):
+        consoleapp()
+        language("C++")
+        cppdialect("C++17")
+        files(["src/main.cpp"])
+
+        # ----- Windows : API Win32 -----
+        with filter("system:Windows"):
+            defines(["EXO8_WINDOWS"])
+            links(["user32", "gdi32"])
+
+        # ----- Linux : fils POSIX et mathematiques -----
+        with filter("system:Linux"):
+            defines(["EXO8_LINUX"])
+            links(["pthread", "m"])
