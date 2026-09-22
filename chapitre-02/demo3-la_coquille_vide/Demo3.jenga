@@ -1,0 +1,28 @@
+from Jenga import *
+
+with workspace("Demo3"):
+    configurations(["Debug", "Release"])
+    targetoses([TargetOS.WINDOWS, TargetOS.LINUX])
+    targetarchs([TargetArch.X86_64])
+
+    # La bibliotheque est compilee SANS le define : elle voit la coquille vide.
+    with project("Compteur"):
+        staticlib()
+        language("C++")
+        cppdialect("C++17")
+        location("compteur")
+        files(["src/**.cpp"])
+        includedirs(["include"])
+        # Pour reparer : defines(["COMPTEUR_COMPLET"])
+
+    # L'application est compilee AVEC le define : elle voit la classe complete.
+    with project("App"):
+        consoleapp()
+        language("C++")
+        cppdialect("C++17")
+        location("app")
+        files(["main.cpp"])
+        includedirs(["%{wks.location}/compteur/include"])
+        defines(["COMPTEUR_COMPLET"])
+        links(["Compteur"])
+        dependson(["Compteur"])
