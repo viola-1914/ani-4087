@@ -1,0 +1,14 @@
+from Jenga import *
+
+with workspace("MaSalleDemo2"):
+    configurations(["Debug", "Release"])
+    targetoses([TargetOS.WINDOWS, TargetOS.LINUX])
+    targetarchs([TargetArch.X86_64])
+
+    with project("MaSalle"):
+        consoleapp()
+        language("C++")
+        cppdialect("C++17")
+        # DEPENDANCE RETIREE (demo 2) : "src/geometrie.cpp" manque volontairement.
+        # Liste complete : files(["src/main.cpp", "src/salle.cpp", "src/geometrie.cpp"])
+        files(["src/main.cpp", "src/salle.cpp"])

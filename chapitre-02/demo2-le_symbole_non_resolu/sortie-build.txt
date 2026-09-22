@@ -1,0 +1,89 @@
+[31m✗[0m Link failed: Build\Bin\Debug-Windows\MaSalle\MaSalle.exe
+
+[36m╔══════════════════════════════════════════════════════════════════╗[0m
+[36m║[0m                                                                  [36m║[0m
+[36m║[0m           [1m[35m     ██╗███████╗███╗   ██╗ ██████╗  █████╗[0m             [36m║[0m
+[36m║[0m           [1m[35m     ██║██╔════╝████╗  ██║██╔════╝ ██╔══██╗[0m            [36m║[0m
+[36m║[0m           [1m[35m     ██║█████╗  ██╔██╗ ██║██║  ███╗███████║[0m            [36m║[0m
+[36m║[0m           [1m[35m██   ██║██╔══╝  ██║╚██╗██║██║   ██║██╔══██║[0m            [36m║[0m
+[36m║[0m           [1m[35m╚█████╔╝███████╗██║ ╚████║╚██████╔╝██║  ██║[0m            [36m║[0m
+[36m║[0m           [1m[35m ╚════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝[0m            [36m║[0m
+[36m║[0m                                                                  [36m║[0m
+[36m║[0m             [1mMulti-platform C/C++ Build System v2.8.0[0m             [36m║[0m
+[36m║[0m                                                                  [36m║[0m
+[36m╚══════════════════════════════════════════════════════════════════╝[0m
+
+[36mLoading workspace...[0m
+
+[36mConfiguration:[0m Debug
+[36mTarget:       [0m Windows x86_64
+[36mToolchain:    [0m mingw
+
+[1m[33mBuild Order (1 projects):[0m
+  1. [1m[37mMaSalle[0m [32m[CONSOLE_APP][0m
+
+
+[1m[36m╔══════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+[1m[36m║[0m[1m[37m  Project: MaSalle[0m                                                         [1m[32mKind: CONSOLE_APP  [0m[1m[36m║[0m
+[1m[36m╚══════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[36mℹ[0m Found 2 source file(s)
+[32m✓[0m All files up to date
+[36mℹ[0m Linking...
+[1m[31m╔══════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+[1m[31m║[0m[1m[37m                                Compilation Error: Link Failed                                [0m[1m[31m║[0m
+[1m[31m╠══════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[1m[31m║[0m C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin [1m[31m║[0m
+[1m[31m║[0m /ld.exe:                                                                                     [1m[31m║[0m
+[1m[31m║[0m C:\Users\HP\Documents\GitHub\ani-4087\chapitre-02\demo2-le_symbole_non_resolu\Build\Obj\Debu [1m[31m║[0m
+[1m[31m║[0m g-Windows\MaSalle\src_main.obj: in function `main':                                          [1m[31m║[0m
+[1m[31m║[0m C:/Users/HP/Documents/GitHub/ani-4087/chapitre-02/demo2-le_symbole_non_resolu/src/main.cpp:9 [1m[31m║[0m
+[1m[31m║[0m :(.text+0x7d): undefined reference to `geometrie::Distance(geometrie::Point,                 [1m[31m║[0m
+[1m[31m║[0m geometrie::Point)'                                                                           [1m[31m║[0m
+[1m[31m║[0m C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin [1m[31m║[0m
+[1m[31m║[0m /ld.exe:                                                                                     [1m[31m║[0m
+[1m[31m║[0m C:\Users\HP\Documents\GitHub\ani-4087\chapitre-02\demo2-le_symbole_non_resolu\Build\Obj\Debu [1m[31m║[0m
+[1m[31m║[0m g-Windows\MaSalle\src_salle.obj: in function `DecrireSalle()':                               [1m[31m║[0m
+[1m[31m║[0m C:/Users/HP/Documents/GitHub/ani-4087/chapitre-02/demo2-le_symbole_non_resolu/src/salle.cpp: [1m[31m║[0m
+[1m[31m║[0m 8:(.text+0x8f): undefined reference to `geometrie::LongueurMur(geometrie::Point,             [1m[31m║[0m
+[1m[31m║[0m geometrie::Point)'                                                                           [1m[31m║[0m
+[1m[31m║[0m C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin [1m[31m║[0m
+[1m[31m║[0m /ld.exe:                                                                                     [1m[31m║[0m
+[1m[31m║[0m C:/Users/HP/Documents/GitHub/ani-4087/chapitre-02/demo2-le_symbole_non_resolu/src/salle.cpp: [1m[31m║[0m
+[1m[31m║[0m 9:(.text+0xdf): undefined reference to `geometrie::LongueurMur(geometrie::Point,             [1m[31m║[0m
+[1m[31m║[0m geometrie::Point)'                                                                           [1m[31m║[0m
+[1m[31m║[0m C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin [1m[31m║[0m
+[1m[31m║[0m /ld.exe:                                                                                     [1m[31m║[0m
+[1m[31m║[0m C:/Users/HP/Documents/GitHub/ani-4087/chapitre-02/demo2-le_symbole_non_resolu/src/salle.cpp: [1m[31m║[0m
+[1m[31m║[0m 10:(.text+0x110): undefined reference to `geometrie::AirePolygone(geometrie::Point const*,   [1m[31m║[0m
+[1m[31m║[0m int)'                                                                                        [1m[31m║[0m
+[1m[31m║[0m C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin [1m[31m║[0m
+[1m[31m║[0m /ld.exe:                                                                                     [1m[31m║[0m
+[1m[31m║[0m C:/Users/HP/Documents/GitHub/ani-4087/chapitre-02/demo2-le_symbole_non_resolu/src/salle.cpp: [1m[31m║[0m
+[1m[31m║[0m 11:(.text+0x141): undefined reference to `geometrie::Perimetre(geometrie::Point const*,      [1m[31m║[0m
+[1m[31m║[0m int)'                                                                                        [1m[31m║[0m
+[1m[31m║[0m C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin [1m[31m║[0m
+[1m[31m║[0m /ld.exe:                                                                                     [1m[31m║[0m
+[1m[31m║[0m C:/Users/HP/Documents/GitHub/ani-4087/chapitre-02/demo2-le_symbole_non_resolu/src/salle.cpp: [1m[31m║[0m
+[1m[31m║[0m 12:(.text+0x177): undefined reference to `geometrie::Centre(geometrie::Point const*, int)'   [1m[31m║[0m
+[1m[31m║[0m collect2.exe: [1m[31merror:[0m ld returned 1 exit status                                               [1m[31m║[0m
+[1m[31m╚══════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[31m┌──────────────────────────────────────────────────────────────────────────────────────────────┐[0m
+[31m│[0m  [1m[31m✗[0m [1m[31mBuild Failed[0m                                                                 [31mTime: 0.17s[0m  [31m│[0m
+[31m│[0m [1m[31mErrors: 7[0m  | [31mFailed files: 1[0m                                                                 [31m│[0m
+[31m└──────────────────────────────────────────────────────────────────────────────────────────────┘[0m
+
+[1m[36m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[31m                                  BUILD FAILED                                  [0m
+[1m[36m════════════════════════════════════════════════════════════════════════════════[0m
+[36mProjects Built: [0m 0/1
+[36mFailed:        [0m [1m[31m1[0m
+[36mErrors:        [0m [1m[31m7[0m
+[36mTime:          [0m 0.17s
+[36mStatus:        [0m [1m[31m✗ FAILURE[0m
+[1m[36m════════════════════════════════════════════════════════════════════════════════[0m
+
+[1m[31mEchecs (1) — a corriger :[0m
+  [31m✗[0m MaSalle
+
