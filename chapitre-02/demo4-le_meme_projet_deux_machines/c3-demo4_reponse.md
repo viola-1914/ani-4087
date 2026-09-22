@@ -22,13 +22,20 @@ Le programme appelle une fonction de chaque bibliothèque (`GetSystemMetrics` de
 
 | | Machine 1 | Machine 2 |
 |---|---|---|
-| Système | **Windows** x86_64 (ma machine) | **Linux**, Ubuntu 24.04.4 LTS, x86_64 |
-| Compilateur | GCC 16.2.0 de MSYS2 (`mingw`) | g++ 13.3.0 (`host-gcc`) |
+| Système | **Windows** x86_64 | **Linux** : Ubuntu 26.04.1 LTS, x86_64 |
+| Compilateur | GCC 16.2.0 de MSYS2 (`mingw`) | g++ 15.2.0 (`host-gcc`) |
 | Jenga | 2.8.0 | 2.8.0 |
+| Dossier du projet | `C:\Users\HP\Documents\GitHub\ani-4087\chapitre-02\demo4-le_meme_projet_deux_machines` | `/home/hp/ani-4087/chapitre-02/demo4-le_meme_projet_deux_machines` |
 
-La machine Linux est celle de mon camarade qui a déjà servi de deuxième machine à l'exercice 23 : il a construit **les fichiers de mon dépôt**, copiés sans modification.
+Je n'ai pas de deuxième ordinateur sous Linux. J'ai donc installé **Ubuntu sous WSL** (le sous-système Linux de Windows) sur mon propre ordinateur : c'est un vrai système Linux, avec son propre compilateur et ses propres bibliothèques, qui tourne à côté de Windows sur le même matériel. J'y ai installé g++ et Jenga, puis **cloné mon dépôt depuis GitHub** et construit le projet tel qu'il y est, sans le modifier :
 
-Exemple de chemin personnel pour le dossier du projet sous Linux : `/home/ana/chapitre-02/demo4/`.
+```text
+sudo apt install -y g++ git python3-pip
+git clone https://github.com/RihenUniverse/Jenga.git
+pip install -e ./Jenga --break-system-packages
+git clone https://github.com/viola-1914/ani-4087.git
+cd ani-4087/chapitre-02/demo4-le_meme_projet_deux_machines
+```
 
 La preuve que ce sont les mêmes fichiers, octet pour octet :
 
@@ -55,7 +62,7 @@ user32 : largeur de l'ecran = 1366 px
 gdi32  : pinceau blanc obtenu
 ```
 
-**Linux** (`jenga run App --platform linux`) :
+**Linux** (`jenga run App --platform linux`, exécuté depuis `/home/hp/ani-4087/chapitre-02/demo4-le_meme_projet_deux_machines/Build/Bin/Debug-Linux/App/App`) :
 
 ```text
 Systeme : Linux (filtre system:Linux applique)
@@ -82,6 +89,7 @@ def     EXO8_WINDOWS
 compiler        /usr/bin/g++
 msvc    0
 project App
+dir     /home/hp/ani-4087/chapitre-02/demo4-le_meme_projet_deux_machines
 std     c++17
 def     EXO8_LINUX
 ```
@@ -144,12 +152,10 @@ def     EXO8_LINUX
 
 ## Un détail que révèle la construction
 
-Sous Linux, `libpthread` n'apparaît pas dans la liste `NEEDED`, alors que le filtre demande `links(["pthread", "m"])`. Les fonctions `pthread_create` et `pthread_join` sont bien importées, mais depuis `libc.so.6` : leur suffixe `@GLIBC_2.34` le montre. Depuis la glibc 2.34, les fils POSIX font partie de la bibliothèque C elle-même. Le lien vers `pthread` demandé par le filtre est donc accepté mais n'ajoute rien sur cette machine. C'était une des limites relevées à l'exercice 8, et c'est la construction, pas `jenga info`, qui le rend visible.
+Sous Linux (Ubuntu 26.04.1, glibc 2.43), `libpthread` n'apparaît pas dans la liste `NEEDED`, alors que le filtre demande `links(["pthread", "m"])`. Les fonctions `pthread_create` et `pthread_join` sont bien importées, mais depuis `libc.so.6` : leur suffixe `@GLIBC_2.34` le montre. Depuis la glibc 2.34, les fils POSIX font partie de la bibliothèque C elle-même. Le lien vers `pthread` demandé par le filtre est donc accepté mais n'ajoute rien sur cette machine. C'était une des limites relevées à l'exercice 8, et c'est la construction, pas `jenga info`, qui le rend visible.
 
 ## Ce que la démo montre
 
 1. **Un fichier de projet peut porter plusieurs systèmes à la fois**, et chaque machine n'en applique qu'une partie.
-
 2. **Pour savoir ce qui a été appliqué, il faut interroger ce qui a été produit** : le programme lui-même, les définitions reçues (`compile-flags`), les bibliothèques et les fonctions importées de l'exécutable (`objdump` sous Windows, `readelf` et `nm` sous Linux).
-
 3. **Le résultat en dit parfois plus que le fichier de projet**, comme ici pour `pthread` : le filtre demande une bibliothèque que l'exécutable n'utilise finalement pas.
