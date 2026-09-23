@@ -1,0 +1,10 @@
+Build/
+build/
+.jenga/
+dist/
+*.apk
+*.idsig
+*.jks
+pyrightconfig.json
+
+tools/*.jar
