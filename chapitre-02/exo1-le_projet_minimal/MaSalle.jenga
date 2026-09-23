@@ -1,22 +1,15 @@
+# MaSalle — le projet minimal (chapitre 02, exercice 1)
+#
+# Le strict necessaire pour que Jenga sache quoi construire :
+# un espace de travail, une configuration, un projet, un langage, un fichier.
+
 from Jenga import *
 
-with workspace("MaSalleWks", location="."):
+with workspace("MaSalleWks"):
     configurations(["Debug", "Release"])
 
     with project("MaSalle"):
-        windowedapp()
+        consoleapp()                 # un programme en ligne de commande
         language("C++")
         cppdialect("C++17")
-        location(".")
-        files(["src/**.cpp"])
-
-        targetdir("build/bin/%{cfg.system}/%{cfg.buildcfg}")
-        objdir("build/obj/%{cfg.system}/%{cfg.buildcfg}/%{prj.name}")
-
-        with filter("config:Debug"):
-            symbols(True)
-            optimize("Off")
-
-        with filter("config:Release"):
-            symbols(False)
-            optimize("Speed")
+        files(["src/main.cpp"])      # la liste complete des sources : un fichier
