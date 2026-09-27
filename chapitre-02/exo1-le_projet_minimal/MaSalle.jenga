@@ -9,7 +9,7 @@ with workspace("MaSalleWks"):
     configurations(["Debug", "Release"])
 
     with project("MaSalle"):
-        consoleapp()                 # un programme en ligne de commande
+        consolap()                 # un programme en ligne de commande
         language("C++")
         cppdialect("C++17")
         files(["src/main.cpp"])      # la liste complete des sources : un fichier
