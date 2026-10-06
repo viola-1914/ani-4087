@@ -1,0 +1,12 @@
+Build/
+build/
+.jenga/
+logs/
+*.exe
+*.lib
+*.dll
+*.o
+*.obj
+Resources/
+pyrightconfig.json
+*.png
