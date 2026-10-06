@@ -1,0 +1,17 @@
+Build/
+build/
+.jenga/
+logs/
+*.exe
+*.lib
+*.dll
+*.o
+*.obj
+NkentseuKit/
+**/NkentseuKit/
+pyrightconfig.json
+mesures_brutes.txt
+budget_entree.txt
+budget.exe
+Resources/
+diagnostic.txt
