@@ -1,0 +1,8 @@
+Ce que rend Load :
+Le chargement de "murs/nexistepas.png" avec NkImage renvoie false, affiché 0. IsValid() renvoie également 0, et Width() et Height() valent 0. Le fichier étant volontairement absent, aucune image valide n'a été chargée.
+
+Pourquoi rien ne plante :
+Load signale son échec par sa valeur de retour. Le programme consulte seulement la validité et les dimensions de l'image, sans accéder à ses pixels. Pour le chargement comme texture, le moteur écrit une erreur dans son journal et poursuit le rendu. Le journal du système de matériaux indique un repli sur une texture blanche 1 x 1 pour le canal albédo. Ce mécanisme permet de continuer à afficher la scène malgré une ressource absente.
+
+Ce que montre le mur :
+La capture montre un mur violet/magenta, sans l'image demandée, et la salle reste visible. Cependant, le journal annonce un repli blanc pour l'albédo : la couleur magenta observée ne suffit donc pas à identifier la texture de remplacement. La cause exacte de cet écart reste à déterminer. La capture semble également inversée verticalement ; je conserve l'image originale produite par le moteur.

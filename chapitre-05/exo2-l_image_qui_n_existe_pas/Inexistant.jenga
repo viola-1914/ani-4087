@@ -1,0 +1,13 @@
+from Jenga import *
+
+KIT = "C:/Nkentseu/NkentseuKit.jenga"
+
+with workspace("InexistantWks"):
+    configurations(["Debug", "Release"])
+    useconfig(KIT)
+    with project("Inexistant"):
+        consoleapp()
+        language("C++")
+        cppdialect("C++17")
+        files(["inexistant.cpp"])
+        usenkentseukit()
