@@ -1,0 +1,8 @@
+Mon format pour un mur :
+Je retiens le JPEG, enregistré avec une qualité de 90, pour cette photographie de mur. Sa relecture réussit et ses dimensions restent identiques à celles de la photo : 864 x 1152.
+
+Pourquoi :
+Le JPEG occupe 98099 octets, contre 712669 pour le PNG, 976413 pour le QOI et 2986038 pour le BMP. C'est le plus petit des formats relisibles testés. Ce gain sur le disque implique une compression avec perte : elle peut modifier les couleurs et supprimer des détails fins de la surface du mur. Des dimensions identiques ne garantissent donc pas des pixels identiques. Je privilégie ici la taille du fichier, mais une comparaison visuelle reste nécessaire pour vérifier que la dégradation est acceptable. Cette réduction sur le disque ne garantit pas une réduction de la mémoire occupée une fois l'image décodée.
+
+Ce qui m'a surpris :
+Le fichier TGA occupe 2986028 octets, mais NkImage ne parvient pas à le relire. Un fichier produit par le moteur n'est donc pas forcément relisible par ce même moteur dans cette expérience. J'ai conservé ce résultat avec la mention illisible. Les quatre autres formats se relisent et conservent tous les dimensions de la photo originale.
