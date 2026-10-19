@@ -1,0 +1,533 @@
+[2026-10-19 12:54:39.524] [INF] [default] [NkGpuPolicy.cpp:112 in ApplyPreContext] -> [NkRHI_GpuPolicy] api=OpenGL pref=Default vendor=Any adapterIndex=-1
+
+[2026-10-19 12:54:39.575] [INF] [default] [NkOpenglDevice.cpp:1019 in Initialize] -> [NkRHI_GL] Debug callback installe (severity>=2 -> NkLog)
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkOpenglDevice.cpp:1055 in Initialize] -> [NkRHI_GL] Initialized (GL 4.6, Intel(R) UHD Graphics)
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkDeviceFactory.cpp:133 in CreateForApi] -> [NkDeviceFactory] Device RHI cree: OpenGL | caps non disponibles
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkRendererImpl.cpp:78 in Initialize] -> [NkRendererImpl] Initialize start (api=1)
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkRendererImpl.cpp:123 in Initialize] -> [NkRendererImpl] framesInFlight config=2 -> 3 (profondeur REELLE du device : les rings doivent la suivre, sinon deux frames consecutives partagent un slot)
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkRendererImpl.cpp:145 in Initialize] -> [NkRendererImpl] FPS cap = 0 (0=vsync gere le rythme, env NK_FPS_CAP)
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkRendererImpl.cpp:152 in Initialize] -> [NkRendererImpl]  step 0: InitRHI
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkRendererImpl.cpp:157 in Initialize] -> [NkRendererImpl]  step 1: NkResources::Init
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkResources.cpp:27 in Init] -> [NkResources]   1.a CreateDefaultTextures...
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkResources.cpp:122 in CreateDefaultTextures] -> [NkResources]      White1x1...
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkResources.cpp:124 in CreateDefaultTextures] -> [NkResources]      Black1x1...
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkResources.cpp:126 in CreateDefaultTextures] -> [NkResources]      Normal1x1...
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkResources.cpp:128 in CreateDefaultTextures] -> [NkResources]      Magenta1x1...
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkResources.cpp:130 in CreateDefaultTextures] -> [NkResources]      Gray1x1...
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkResources.cpp:132 in CreateDefaultTextures] -> [NkResources]      defaults done
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkResources.cpp:32 in Init] -> [NkResources]   1.b CreateDefaultSamplers...
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkResources.cpp:37 in Init] -> [NkResources]   1.c CreateStandardLayouts...
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkResources.cpp:44 in Init] -> [NkResources]   1.d Init done
+
+[2026-10-19 12:54:39.576] [INF] [default] [NkRendererImpl.cpp:163 in Initialize] -> [NkRendererImpl]  step 2: NkShaderLibrary::Init
+
+[2026-10-19 12:54:39.577] [INF] [default] [NkRendererImpl.cpp:171 in Initialize] -> [NkRendererImpl]  step 3: NkRenderGraph::ctor
+
+[2026-10-19 12:54:39.577] [INF] [default] [NkRendererImpl.cpp:175 in Initialize] -> [NkRendererImpl]  step 4: NkTextureLibrary::Init
+
+[2026-10-19 12:54:39.577] [INF] [default] [NkRendererImpl.cpp:181 in Initialize] -> [NkRendererImpl]  step 5: NkMeshSystem::Init
+
+[2026-10-19 12:54:39.577] [INF] [default] [NkRendererImpl.cpp:187 in Initialize] -> [NkRendererImpl]  step 6: NkMaterialSystem::Init
+
+[2026-10-19 12:54:39.577] [INF] [default] [NkMaterialCollection.cpp:25 in Init] -> [NkMaterialCollection] Initialized (64 slots max, 1024 bytes UBO, 4 preset slots)
+
+[2026-10-19 12:54:39.577] [INF] [default] [NkMaterialLibrary.cpp:33 in Init] -> [NkMaterialLibrary] Initialized
+
+[2026-10-19 12:54:39.577] [INF] [default] [NkRendererImpl.cpp:227 in Initialize] -> [NkRendererImpl]  step 7: InitShadow
+
+[2026-10-19 12:54:39.584] [INF] [default] [NkRendererImpl.cpp:232 in Initialize] -> [NkRendererImpl]  step 8: InitEnvironment
+
+[2026-10-19 12:54:39.600] [INF] [default] [NkEnvironmentSystem.cpp:176 in TryLoadIBLCache] -> [IBL] Cache charge (hit) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Build/Bin/Release-Windows/MaSalleCone/cache/ibl/nk_ibl_29c9855a.bin
+
+[2026-10-19 12:54:39.600] [INF] [default] [NkRendererImpl.cpp:237 in Initialize] -> [NkRendererImpl]  step 9: InitRender3D
+
+[2026-10-19 12:54:39.689] [INF] [default] [NkRender3D.cpp:277 in Init] -> [NkRender3D] Tables LTC : ltc1=1 ltc2=1
+
+[2026-10-19 12:54:39.695] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'PBR' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/PBR/NkSL/pbr.vert.nksl
+
+[2026-10-19 12:54:39.695] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'PBR' vsGlsl=2459 fsGlsl=43733 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:54:39.708] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'Shadow' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/Shadow/NkSL/shadow.vert.nksl
+
+[2026-10-19 12:54:39.709] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'Shadow' vsGlsl=567 fsGlsl=37 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:54:39.709] [INF] [default] [NkRender3D.cpp:646 in Init] -> [NkRender3D] Shadow pipeline create: shader_valid=1 pipeline_valid=1
+
+[2026-10-19 12:54:39.710] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'ShadowLinear' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/ShadowLinear/NkSL/shadowlinear.vert.nksl
+
+[2026-10-19 12:54:39.710] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'ShadowLinear' vsGlsl=644 fsGlsl=244 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:54:39.711] [INF] [default] [NkRender3D.cpp:659 in Init] -> [NkRender3D] ShadowLinear shader compile: valid=1
+
+[2026-10-19 12:54:39.711] [INF] [default] [NkRender3D.cpp:679 in Init] -> [NkRender3D] ShadowLinear pipeline create: valid=1
+
+[2026-10-19 12:54:39.711] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'ShadowInstanced' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/ShadowInstanced/NkSL/shadowinstanced.vert.nksl
+
+[2026-10-19 12:54:39.711] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'ShadowInstanced' vsGlsl=768 fsGlsl=37 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:54:39.712] [INF] [default] [NkRender3D.cpp:691 in Init] -> [NkRender3D] ShadowInstanced shader compile: valid=1
+
+[2026-10-19 12:54:39.712] [INF] [default] [NkRender3D.cpp:709 in Init] -> [NkRender3D] ShadowInstanced pipeline create: shader_valid=1 pipeline_valid=1
+
+[2026-10-19 12:54:39.713] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'Skin' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/Skin/NkSL/skin.vert.nksl
+
+[2026-10-19 12:54:39.713] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'Skin' vsGlsl=2682 fsGlsl=5147 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:54:39.715] [INF] [default] [NkRender3D.cpp:722 in Init] -> [NkRender3D] Skin shader compile: valid=1
+
+[2026-10-19 12:54:39.716] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'Instanced' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/Instanced/NkSL/instanced.vert.nksl
+
+[2026-10-19 12:54:39.716] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'Instanced' vsGlsl=1538 fsGlsl=566 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:54:39.718] [INF] [default] [NkRender3D.cpp:734 in Init] -> [NkRender3D] Instanced shader compile: valid=1
+
+[2026-10-19 12:54:39.719] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'Skybox' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/Skybox/NkSL/skybox.vert.nksl
+
+[2026-10-19 12:54:39.719] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'Skybox' vsGlsl=219 fsGlsl=17440 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:54:39.724] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'InfiniteGrid' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/InfiniteGrid/NkSL/infinitegrid.vert.nksl
+
+[2026-10-19 12:54:39.724] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'InfiniteGrid' vsGlsl=219 fsGlsl=4810 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:54:39.726] [INF] [default] [NkRender3D.cpp:751 in Init] -> [NkRender3D] InfiniteGrid shader compile: valid=1
+
+[2026-10-19 12:54:39.727] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'ShadowAlpha' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/ShadowAlpha/NkSL/shadowalpha.vert.nksl
+
+[2026-10-19 12:54:39.727] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'ShadowAlpha' vsGlsl=703 fsGlsl=1570 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:54:39.728] [INF] [default] [NkRender3D.cpp:798 in Init] -> [NkRender3D] ShadowAlpha pipeline create: shader_valid=1 pipeline_valid=1
+
+[2026-10-19 12:54:39.728] [INF] [default] [NkRender3D.cpp:803 in Init] -> [NkRender3D] Init final: ringValid=1 pbrShader.valid=1 (PBR pipeline: lazy create at 1st flush)
+
+[2026-10-19 12:54:39.728] [INF] [default] [NkRender3D.cpp:2459 in SetMaterialCollection] -> [NkRender3D] MaterialCollection UBO bind a set=0 binding=25
+
+[2026-10-19 12:54:39.730] [INF] [default] [NkVoxelAOSystem.cpp:52 in Init] -> [NkVoxelAOSystem] Init OK : 64x32x64 R8 (128 KB)
+
+[2026-10-19 12:54:39.730] [INF] [default] [NkRender3D.cpp:2484 in SetVoxelAO] -> [NkRender3D] VoxelAO texture bind a set=0 binding=27
+
+[2026-10-19 12:54:39.730] [INF] [default] [NkRendererImpl.cpp:298 in Initialize] -> [NkRendererImpl]  step16: BuildDefaultRenderGraph
+
+[2026-10-19 12:54:39.731] [INF] [default] [NkRendererImpl.cpp:302 in Initialize] -> [NkRendererImpl] Initialize done
+
+[2026-10-19 12:54:39.736] [INF] [default] [NkRenderGraph.cpp:456 in Execute] -> [NkRenderGraph] Execute frame=1 : passes=5 swap=1280x720
+
+[2026-10-19 12:54:39.736] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Shadows' enabled=true hasExecute=true colors=0 hasDepth=false
+
+[2026-10-19 12:54:39.736] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Geometry' enabled=true hasExecute=true colors=1 hasDepth=true
+
+[2026-10-19 12:54:39.736] [INF] [default] [NkRender3D.cpp:882 in EnsurePBRPipeline] -> [NkRender3D] PBR pipeline (lazy) create: shader_valid=1 pipeline_valid=1 rp.id=0
+
+[2026-10-19 12:54:39.736] [INF] [default] [NkMaterialSystem.cpp:633 in UpdateInstanceDescriptors] -> [NkMaterialSystem] canal albedo lie : id=3 (blanc 1x1 = id=3) -> REPLI BLANC : rien n'a ete pose sur ? albedo ?
+
+[2026-10-19 12:54:39.736] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'SelectionMask' enabled=true hasExecute=true colors=1 hasDepth=false
+
+[2026-10-19 12:54:39.736] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Overlay3D' enabled=true hasExecute=true colors=1 hasDepth=true
+
+[2026-10-19 12:54:39.736] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'SelectionOutline' enabled=true hasExecute=true colors=1 hasDepth=false
+
+[2026-10-19 12:54:39.737] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'SelOutline' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/SelOutline/NkSL/seloutline.vert.nksl
+
+[2026-10-19 12:54:39.737] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'SelOutline' vsGlsl=343 fsGlsl=2900 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:54:39.739] [INF] [default] [NkRender3D.cpp:1361 in EnsureSelOutlinePipeline] -> [NkRender3D] SelOutline pipeline create: shader_valid=1 pipeline_valid=1 rp.id=0
+
+[2026-10-19 12:54:39.739] [WRN] [default] [NkOpenglDevice.cpp:289 in GlDebugCallback] -> [NkRHI_GL][API/PERF/2] API_ID_RECOMPILE_FRAGMENT_SHADER performance warning has been generated. Fragment shader recompiled due to state change.
+[2026-10-19 12:54:39.742] [INF] [default] [NkRenderGraph.cpp:456 in Execute] -> [NkRenderGraph] Execute frame=2 : passes=5 swap=1280x720
+
+[2026-10-19 12:54:39.742] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Shadows' enabled=true hasExecute=true colors=0 hasDepth=false
+
+[2026-10-19 12:54:39.742] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Geometry' enabled=true hasExecute=true colors=1 hasDepth=true
+
+[2026-10-19 12:54:39.742] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'SelectionMask' enabled=true hasExecute=true colors=1 hasDepth=false
+
+[2026-10-19 12:54:39.742] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Overlay3D' enabled=true hasExecute=true colors=1 hasDepth=true
+
+[2026-10-19 12:54:39.742] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'SelectionOutline' enabled=true hasExecute=true colors=1 hasDepth=false
+
+[2026-10-19 12:54:39.774] [INF] [default] [NkRenderGraph.cpp:456 in Execute] -> [NkRenderGraph] Execute frame=3 : passes=5 swap=1280x720
+
+[2026-10-19 12:54:39.774] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Shadows' enabled=true hasExecute=true colors=0 hasDepth=false
+
+[2026-10-19 12:54:39.774] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Geometry' enabled=true hasExecute=true colors=1 hasDepth=true
+
+[2026-10-19 12:54:39.774] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'SelectionMask' enabled=true hasExecute=true colors=1 hasDepth=false
+
+[2026-10-19 12:54:39.774] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Overlay3D' enabled=true hasExecute=true colors=1 hasDepth=true
+
+[2026-10-19 12:54:39.774] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'SelectionOutline' enabled=true hasExecute=true colors=1 hasDepth=false
+
+[2026-10-19 12:54:40.717] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 1003 soumission(s) (image 60)
+
+[2026-10-19 12:54:41.717] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 2023 soumission(s) (image 120)
+
+[2026-10-19 12:54:42.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 3043 soumission(s) (image 180)
+
+[2026-10-19 12:54:43.717] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 4063 soumission(s) (image 240)
+
+[2026-10-19 12:54:44.717] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 5083 soumission(s) (image 300)
+
+[2026-10-19 12:54:45.717] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 6103 soumission(s) (image 360)
+
+[2026-10-19 12:54:46.717] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 7123 soumission(s) (image 420)
+
+[2026-10-19 12:54:47.717] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 8143 soumission(s) (image 480)
+
+[2026-10-19 12:54:48.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 9163 soumission(s) (image 540)
+
+[2026-10-19 12:54:49.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 10183 soumission(s) (image 600)
+
+[2026-10-19 12:54:50.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 11203 soumission(s) (image 660)
+
+[2026-10-19 12:54:51.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 12223 soumission(s) (image 720)
+
+[2026-10-19 12:54:52.717] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 13243 soumission(s) (image 780)
+
+[2026-10-19 12:54:53.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 14263 soumission(s) (image 840)
+
+[2026-10-19 12:54:54.717] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 15283 soumission(s) (image 900)
+
+[2026-10-19 12:54:55.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 16303 soumission(s) (image 960)
+
+[2026-10-19 12:54:56.717] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 17323 soumission(s) (image 1020)
+
+[2026-10-19 12:54:57.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 18343 soumission(s) (image 1080)
+
+[2026-10-19 12:54:58.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 19363 soumission(s) (image 1140)
+
+[2026-10-19 12:54:59.717] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 20383 soumission(s) (image 1200)
+
+[2026-10-19 12:55:00.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 21403 soumission(s) (image 1260)
+
+[2026-10-19 12:55:01.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 22423 soumission(s) (image 1320)
+
+[2026-10-19 12:55:02.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 23443 soumission(s) (image 1380)
+
+[2026-10-19 12:55:03.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 24463 soumission(s) (image 1440)
+
+[2026-10-19 12:55:04.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 25483 soumission(s) (image 1500)
+
+[2026-10-19 12:55:05.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 26503 soumission(s) (image 1560)
+
+[2026-10-19 12:55:06.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 27523 soumission(s) (image 1620)
+
+[2026-10-19 12:55:07.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 28543 soumission(s) (image 1680)
+
+[2026-10-19 12:55:08.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 29563 soumission(s) (image 1740)
+
+[2026-10-19 12:55:09.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 30583 soumission(s) (image 1800)
+
+[2026-10-19 12:55:10.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 31603 soumission(s) (image 1860)
+
+[2026-10-19 12:55:11.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 32623 soumission(s) (image 1920)
+
+[2026-10-19 12:55:12.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 33643 soumission(s) (image 1980)
+
+[2026-10-19 12:55:13.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 34663 soumission(s) (image 2040)
+
+[2026-10-19 12:55:14.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 35683 soumission(s) (image 2100)
+
+[2026-10-19 12:55:15.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 36703 soumission(s) (image 2160)
+
+[2026-10-19 12:55:16.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 37723 soumission(s) (image 2220)
+
+[2026-10-19 12:55:17.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 38743 soumission(s) (image 2280)
+
+[2026-10-19 12:55:18.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 39763 soumission(s) (image 2340)
+
+[2026-10-19 12:55:19.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 40783 soumission(s) (image 2400)
+
+[2026-10-19 12:55:20.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 41803 soumission(s) (image 2460)
+
+[2026-10-19 12:55:21.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 42823 soumission(s) (image 2520)
+
+[2026-10-19 12:55:22.716] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 43843 soumission(s) (image 2580)
+
+[2026-10-19 12:55:23.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 44863 soumission(s) (image 2640)
+
+[2026-10-19 12:55:24.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 45883 soumission(s) (image 2700)
+
+[2026-10-19 12:55:25.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 46903 soumission(s) (image 2760)
+
+[2026-10-19 12:55:26.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 47923 soumission(s) (image 2820)
+
+[2026-10-19 12:55:27.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 48943 soumission(s) (image 2880)
+
+[2026-10-19 12:55:28.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 49963 soumission(s) (image 2940)
+
+[2026-10-19 12:55:29.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 50983 soumission(s) (image 3000)
+
+[2026-10-19 12:55:30.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 52003 soumission(s) (image 3060)
+
+[2026-10-19 12:55:31.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 53023 soumission(s) (image 3120)
+
+[2026-10-19 12:55:32.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 54043 soumission(s) (image 3180)
+
+[2026-10-19 12:55:33.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 55063 soumission(s) (image 3240)
+
+[2026-10-19 12:55:34.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 56083 soumission(s) (image 3300)
+
+[2026-10-19 12:55:35.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 57103 soumission(s) (image 3360)
+
+[2026-10-19 12:55:36.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 58123 soumission(s) (image 3420)
+
+[2026-10-19 12:55:37.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 59143 soumission(s) (image 3480)
+
+[2026-10-19 12:55:38.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 60163 soumission(s) (image 3540)
+
+[2026-10-19 12:55:39.715] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 61183 soumission(s) (image 3600)
+
+[2026-10-19 12:55:40.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 62203 soumission(s) (image 3660)
+
+[2026-10-19 12:55:41.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 63223 soumission(s) (image 3720)
+
+[2026-10-19 12:55:42.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 64243 soumission(s) (image 3780)
+
+[2026-10-19 12:55:43.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 65263 soumission(s) (image 3840)
+
+[2026-10-19 12:55:44.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 66283 soumission(s) (image 3900)
+
+[2026-10-19 12:55:45.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 67303 soumission(s) (image 3960)
+
+[2026-10-19 12:55:46.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 68323 soumission(s) (image 4020)
+
+[2026-10-19 12:55:47.714] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 69343 soumission(s) (image 4080)
+
+[2026-10-19 12:55:49.602] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 70363 soumission(s) (image 4140)
+
+[2026-10-19 12:55:51.517] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 71383 soumission(s) (image 4200)
+
+[2026-10-19 12:55:52.846] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 72403 soumission(s) (image 4260)
+
+[2026-10-19 12:55:53.846] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 73423 soumission(s) (image 4320)
+
+[2026-10-19 12:55:54.846] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 74443 soumission(s) (image 4380)
+
+[2026-10-19 12:55:55.846] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 75463 soumission(s) (image 4440)
+
+[2026-10-19 12:55:56.829] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 76483 soumission(s) (image 4500)
+
+[2026-10-19 12:55:57.829] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 77503 soumission(s) (image 4560)
+
+[2026-10-19 12:55:58.829] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 78523 soumission(s) (image 4620)
+
+[2026-10-19 12:55:59.829] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 79543 soumission(s) (image 4680)
+
+[2026-10-19 12:56:00.830] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 80563 soumission(s) (image 4740)
+
+[2026-10-19 12:56:01.811] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 81583 soumission(s) (image 4800)
+
+[2026-10-19 12:56:02.812] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 82603 soumission(s) (image 4860)
+
+[2026-10-19 12:56:03.812] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 83623 soumission(s) (image 4920)
+
+[2026-10-19 12:56:04.812] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 84643 soumission(s) (image 4980)
+
+[2026-10-19 12:56:05.812] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 85663 soumission(s) (image 5040)
+
+[2026-10-19 12:56:06.812] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 86683 soumission(s) (image 5100)
+
+[2026-10-19 12:56:07.812] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 87703 soumission(s) (image 5160)
+
+[2026-10-19 12:56:08.811] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 88723 soumission(s) (image 5220)
+
+[2026-10-19 12:56:09.796] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 89743 soumission(s) (image 5280)
+
+[2026-10-19 12:56:10.795] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 90763 soumission(s) (image 5340)
+
+[2026-10-19 12:56:11.795] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 91783 soumission(s) (image 5400)
+
+[2026-10-19 12:56:12.796] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 92803 soumission(s) (image 5460)
+
+[2026-10-19 12:56:13.796] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 93823 soumission(s) (image 5520)
+
+[2026-10-19 12:56:14.779] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 94843 soumission(s) (image 5580)
+
+[2026-10-19 12:56:15.778] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 95863 soumission(s) (image 5640)
+
+[2026-10-19 12:56:16.778] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 96883 soumission(s) (image 5700)
+
+[2026-10-19 12:56:17.778] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 97903 soumission(s) (image 5760)
+
+[2026-10-19 12:56:18.778] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 98923 soumission(s) (image 5820)
+
+[2026-10-19 12:56:19.778] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 99943 soumission(s) (image 5880)
+
+[2026-10-19 12:56:20.761] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 100963 soumission(s) (image 5940)
+
+[2026-10-19 12:56:21.761] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 101983 soumission(s) (image 6000)
+
+[2026-10-19 12:56:22.761] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 103003 soumission(s) (image 6060)
+
+[2026-10-19 12:56:23.746] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 104023 soumission(s) (image 6120)
+
+[2026-10-19 12:56:24.745] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 105043 soumission(s) (image 6180)
+
+[2026-10-19 12:56:25.745] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 106063 soumission(s) (image 6240)
+
+[2026-10-19 12:56:26.744] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 107083 soumission(s) (image 6300)
+
+[2026-10-19 12:56:27.745] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 108103 soumission(s) (image 6360)
+
+[2026-10-19 12:56:28.744] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 109123 soumission(s) (image 6420)
+
+[2026-10-19 12:56:29.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 110143 soumission(s) (image 6480)
+
+[2026-10-19 12:56:30.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 111163 soumission(s) (image 6540)
+
+[2026-10-19 12:56:31.728] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 112183 soumission(s) (image 6600)
+
+[2026-10-19 12:56:32.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 113203 soumission(s) (image 6660)
+
+[2026-10-19 12:56:33.728] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 114223 soumission(s) (image 6720)
+
+[2026-10-19 12:56:34.728] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 115243 soumission(s) (image 6780)
+
+[2026-10-19 12:56:35.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 116263 soumission(s) (image 6840)
+
+[2026-10-19 12:56:36.728] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 117283 soumission(s) (image 6900)
+
+[2026-10-19 12:56:37.728] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 118303 soumission(s) (image 6960)
+
+[2026-10-19 12:56:38.728] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 119323 soumission(s) (image 7020)
+
+[2026-10-19 12:56:39.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 120343 soumission(s) (image 7080)
+
+[2026-10-19 12:56:40.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 121363 soumission(s) (image 7140)
+
+[2026-10-19 12:56:41.728] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 122383 soumission(s) (image 7200)
+
+[2026-10-19 12:56:42.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 123403 soumission(s) (image 7260)
+
+[2026-10-19 12:56:43.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 124423 soumission(s) (image 7320)
+
+[2026-10-19 12:56:44.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 125443 soumission(s) (image 7380)
+
+[2026-10-19 12:56:45.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 126463 soumission(s) (image 7440)
+
+[2026-10-19 12:56:46.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 127483 soumission(s) (image 7500)
+
+[2026-10-19 12:56:47.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 128503 soumission(s) (image 7560)
+
+[2026-10-19 12:56:48.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 129523 soumission(s) (image 7620)
+
+[2026-10-19 12:56:49.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 130543 soumission(s) (image 7680)
+
+[2026-10-19 12:56:50.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 131563 soumission(s) (image 7740)
+
+[2026-10-19 12:56:51.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 132583 soumission(s) (image 7800)
+
+[2026-10-19 12:56:52.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 133603 soumission(s) (image 7860)
+
+[2026-10-19 12:56:53.710] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 134623 soumission(s) (image 7920)
+
+[2026-10-19 12:56:54.709] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 135643 soumission(s) (image 7980)
+
+[2026-10-19 12:56:55.709] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 136663 soumission(s) (image 8040)
+
+[2026-10-19 12:56:56.709] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 137683 soumission(s) (image 8100)
+
+[2026-10-19 12:56:57.711] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 138703 soumission(s) (image 8160)
+
+[2026-10-19 12:56:58.710] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 139723 soumission(s) (image 8220)
+
+[2026-10-19 12:56:59.709] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 140743 soumission(s) (image 8280)
+
+[2026-10-19 12:57:00.709] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 141763 soumission(s) (image 8340)
+
+[2026-10-19 12:57:01.709] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 142783 soumission(s) (image 8400)
+
+[2026-10-19 12:57:02.709] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 143803 soumission(s) (image 8460)
+
+[2026-10-19 12:57:03.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 144823 soumission(s) (image 8520)
+
+[2026-10-19 12:57:04.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 145843 soumission(s) (image 8580)
+
+[2026-10-19 12:57:05.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 146863 soumission(s) (image 8640)
+
+[2026-10-19 12:57:06.727] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 147883 soumission(s) (image 8700)
+
+[2026-10-19 12:57:07.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 148903 soumission(s) (image 8760)
+
+[2026-10-19 12:57:08.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 149923 soumission(s) (image 8820)
+
+[2026-10-19 12:57:09.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 150943 soumission(s) (image 8880)
+
+[2026-10-19 12:57:10.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 151963 soumission(s) (image 8940)
+
+[2026-10-19 12:57:11.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 152983 soumission(s) (image 9000)
+
+[2026-10-19 12:57:12.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 154003 soumission(s) (image 9060)
+
+[2026-10-19 12:57:13.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 155023 soumission(s) (image 9120)
+
+[2026-10-19 12:57:14.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 156043 soumission(s) (image 9180)
+
+[2026-10-19 12:57:15.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 157063 soumission(s) (image 9240)
+
+[2026-10-19 12:57:16.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 158083 soumission(s) (image 9300)
+
+[2026-10-19 12:57:17.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 159103 soumission(s) (image 9360)
+
+[2026-10-19 12:57:18.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 160123 soumission(s) (image 9420)
+
+[2026-10-19 12:57:19.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 161143 soumission(s) (image 9480)
+
+[2026-10-19 12:57:20.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 162163 soumission(s) (image 9540)
+
+[2026-10-19 12:57:21.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 163183 soumission(s) (image 9600)
+
+[2026-10-19 12:57:22.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 164203 soumission(s) (image 9660)
+
+[2026-10-19 12:57:23.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 165223 soumission(s) (image 9720)
+
+[2026-10-19 12:57:24.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 166243 soumission(s) (image 9780)
+
+[2026-10-19 12:57:25.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 167263 soumission(s) (image 9840)
+
+[2026-10-19 12:57:26.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 168283 soumission(s) (image 9900)
+
+[2026-10-19 12:57:27.726] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 169303 soumission(s) (image 9960)
+
+[2026-10-19 12:57:28.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 170323 soumission(s) (image 10020)
+
+[2026-10-19 12:57:29.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 171343 soumission(s) (image 10080)
+
+[2026-10-19 12:57:30.724] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 172363 soumission(s) (image 10140)
+
+[2026-10-19 12:57:31.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 173383 soumission(s) (image 10200)
+
+[2026-10-19 12:57:32.724] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 174403 soumission(s) (image 10260)
+
+[2026-10-19 12:57:33.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 175423 soumission(s) (image 10320)
+
+[2026-10-19 12:57:34.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 176443 soumission(s) (image 10380)
+
+[2026-10-19 12:57:35.724] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 177463 soumission(s) (image 10440)
+
+[2026-10-19 12:57:36.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 178483 soumission(s) (image 10500)
+
+[2026-10-19 12:57:37.725] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 179503 soumission(s) (image 10560)
+
+[2026-10-19 12:57:38.665] [INF] [default] [NkRender3D.cpp:1424 in Shutdown] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 180455 soumission(s)
+
+[2026-10-19 12:57:38.677] [INF] [default] [NkMaterialLibrary.cpp:45 in Shutdown] -> [NkMaterialLibrary] Shutdown
+
+[2026-10-19 12:57:38.726] [INF] [default] [NkOpenglDevice.cpp:1158 in Shutdown] -> [NkRHI_GL] Shutdown
+

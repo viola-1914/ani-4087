@@ -1,0 +1,190 @@
+[2026-10-19 12:58:04.995] [INF] [default] [NkGpuPolicy.cpp:112 in ApplyPreContext] -> [NkRHI_GpuPolicy] api=OpenGL pref=Default vendor=Any adapterIndex=-1
+
+[2026-10-19 12:58:05.048] [INF] [default] [NkOpenglDevice.cpp:1019 in Initialize] -> [NkRHI_GL] Debug callback installe (severity>=2 -> NkLog)
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkOpenglDevice.cpp:1055 in Initialize] -> [NkRHI_GL] Initialized (GL 4.6, Intel(R) UHD Graphics)
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkDeviceFactory.cpp:133 in CreateForApi] -> [NkDeviceFactory] Device RHI cree: OpenGL | caps non disponibles
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkRendererImpl.cpp:78 in Initialize] -> [NkRendererImpl] Initialize start (api=1)
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkRendererImpl.cpp:123 in Initialize] -> [NkRendererImpl] framesInFlight config=2 -> 3 (profondeur REELLE du device : les rings doivent la suivre, sinon deux frames consecutives partagent un slot)
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkRendererImpl.cpp:145 in Initialize] -> [NkRendererImpl] FPS cap = 0 (0=vsync gere le rythme, env NK_FPS_CAP)
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkRendererImpl.cpp:152 in Initialize] -> [NkRendererImpl]  step 0: InitRHI
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkRendererImpl.cpp:157 in Initialize] -> [NkRendererImpl]  step 1: NkResources::Init
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkResources.cpp:27 in Init] -> [NkResources]   1.a CreateDefaultTextures...
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkResources.cpp:122 in CreateDefaultTextures] -> [NkResources]      White1x1...
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkResources.cpp:124 in CreateDefaultTextures] -> [NkResources]      Black1x1...
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkResources.cpp:126 in CreateDefaultTextures] -> [NkResources]      Normal1x1...
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkResources.cpp:128 in CreateDefaultTextures] -> [NkResources]      Magenta1x1...
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkResources.cpp:130 in CreateDefaultTextures] -> [NkResources]      Gray1x1...
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkResources.cpp:132 in CreateDefaultTextures] -> [NkResources]      defaults done
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkResources.cpp:32 in Init] -> [NkResources]   1.b CreateDefaultSamplers...
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkResources.cpp:37 in Init] -> [NkResources]   1.c CreateStandardLayouts...
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkResources.cpp:44 in Init] -> [NkResources]   1.d Init done
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkRendererImpl.cpp:163 in Initialize] -> [NkRendererImpl]  step 2: NkShaderLibrary::Init
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkRendererImpl.cpp:171 in Initialize] -> [NkRendererImpl]  step 3: NkRenderGraph::ctor
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkRendererImpl.cpp:175 in Initialize] -> [NkRendererImpl]  step 4: NkTextureLibrary::Init
+
+[2026-10-19 12:58:05.049] [INF] [default] [NkRendererImpl.cpp:181 in Initialize] -> [NkRendererImpl]  step 5: NkMeshSystem::Init
+
+[2026-10-19 12:58:05.050] [INF] [default] [NkRendererImpl.cpp:187 in Initialize] -> [NkRendererImpl]  step 6: NkMaterialSystem::Init
+
+[2026-10-19 12:58:05.050] [INF] [default] [NkMaterialCollection.cpp:25 in Init] -> [NkMaterialCollection] Initialized (64 slots max, 1024 bytes UBO, 4 preset slots)
+
+[2026-10-19 12:58:05.050] [INF] [default] [NkMaterialLibrary.cpp:33 in Init] -> [NkMaterialLibrary] Initialized
+
+[2026-10-19 12:58:05.050] [INF] [default] [NkRendererImpl.cpp:227 in Initialize] -> [NkRendererImpl]  step 7: InitShadow
+
+[2026-10-19 12:58:05.054] [INF] [default] [NkRendererImpl.cpp:232 in Initialize] -> [NkRendererImpl]  step 8: InitEnvironment
+
+[2026-10-19 12:58:05.070] [INF] [default] [NkEnvironmentSystem.cpp:176 in TryLoadIBLCache] -> [IBL] Cache charge (hit) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Build/Bin/Release-Windows/MaSalleCone/cache/ibl/nk_ibl_29c9855a.bin
+
+[2026-10-19 12:58:05.070] [INF] [default] [NkRendererImpl.cpp:237 in Initialize] -> [NkRendererImpl]  step 9: InitRender3D
+
+[2026-10-19 12:58:05.168] [INF] [default] [NkRender3D.cpp:277 in Init] -> [NkRender3D] Tables LTC : ltc1=1 ltc2=1
+
+[2026-10-19 12:58:05.175] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'PBR' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/PBR/NkSL/pbr.vert.nksl
+
+[2026-10-19 12:58:05.176] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'PBR' vsGlsl=2459 fsGlsl=43733 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:58:05.188] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'Shadow' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/Shadow/NkSL/shadow.vert.nksl
+
+[2026-10-19 12:58:05.188] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'Shadow' vsGlsl=567 fsGlsl=37 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:58:05.189] [INF] [default] [NkRender3D.cpp:646 in Init] -> [NkRender3D] Shadow pipeline create: shader_valid=1 pipeline_valid=1
+
+[2026-10-19 12:58:05.191] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'ShadowLinear' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/ShadowLinear/NkSL/shadowlinear.vert.nksl
+
+[2026-10-19 12:58:05.191] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'ShadowLinear' vsGlsl=644 fsGlsl=244 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:58:05.192] [INF] [default] [NkRender3D.cpp:659 in Init] -> [NkRender3D] ShadowLinear shader compile: valid=1
+
+[2026-10-19 12:58:05.192] [INF] [default] [NkRender3D.cpp:679 in Init] -> [NkRender3D] ShadowLinear pipeline create: valid=1
+
+[2026-10-19 12:58:05.193] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'ShadowInstanced' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/ShadowInstanced/NkSL/shadowinstanced.vert.nksl
+
+[2026-10-19 12:58:05.193] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'ShadowInstanced' vsGlsl=768 fsGlsl=37 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:58:05.194] [INF] [default] [NkRender3D.cpp:691 in Init] -> [NkRender3D] ShadowInstanced shader compile: valid=1
+
+[2026-10-19 12:58:05.194] [INF] [default] [NkRender3D.cpp:709 in Init] -> [NkRender3D] ShadowInstanced pipeline create: shader_valid=1 pipeline_valid=1
+
+[2026-10-19 12:58:05.194] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'Skin' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/Skin/NkSL/skin.vert.nksl
+
+[2026-10-19 12:58:05.194] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'Skin' vsGlsl=2682 fsGlsl=5147 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:58:05.196] [INF] [default] [NkRender3D.cpp:722 in Init] -> [NkRender3D] Skin shader compile: valid=1
+
+[2026-10-19 12:58:05.197] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'Instanced' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/Instanced/NkSL/instanced.vert.nksl
+
+[2026-10-19 12:58:05.197] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'Instanced' vsGlsl=1538 fsGlsl=566 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:58:05.198] [INF] [default] [NkRender3D.cpp:734 in Init] -> [NkRender3D] Instanced shader compile: valid=1
+
+[2026-10-19 12:58:05.201] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'Skybox' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/Skybox/NkSL/skybox.vert.nksl
+
+[2026-10-19 12:58:05.201] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'Skybox' vsGlsl=219 fsGlsl=17440 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:58:05.208] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'InfiniteGrid' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/InfiniteGrid/NkSL/infinitegrid.vert.nksl
+
+[2026-10-19 12:58:05.208] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'InfiniteGrid' vsGlsl=219 fsGlsl=4810 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:58:05.210] [INF] [default] [NkRender3D.cpp:751 in Init] -> [NkRender3D] InfiniteGrid shader compile: valid=1
+
+[2026-10-19 12:58:05.211] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'ShadowAlpha' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/ShadowAlpha/NkSL/shadowalpha.vert.nksl
+
+[2026-10-19 12:58:05.211] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'ShadowAlpha' vsGlsl=703 fsGlsl=1570 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:58:05.212] [INF] [default] [NkRender3D.cpp:798 in Init] -> [NkRender3D] ShadowAlpha pipeline create: shader_valid=1 pipeline_valid=1
+
+[2026-10-19 12:58:05.212] [INF] [default] [NkRender3D.cpp:803 in Init] -> [NkRender3D] Init final: ringValid=1 pbrShader.valid=1 (PBR pipeline: lazy create at 1st flush)
+
+[2026-10-19 12:58:05.212] [INF] [default] [NkRender3D.cpp:2459 in SetMaterialCollection] -> [NkRender3D] MaterialCollection UBO bind a set=0 binding=25
+
+[2026-10-19 12:58:05.214] [INF] [default] [NkVoxelAOSystem.cpp:52 in Init] -> [NkVoxelAOSystem] Init OK : 64x32x64 R8 (128 KB)
+
+[2026-10-19 12:58:05.214] [INF] [default] [NkRender3D.cpp:2484 in SetVoxelAO] -> [NkRender3D] VoxelAO texture bind a set=0 binding=27
+
+[2026-10-19 12:58:05.214] [INF] [default] [NkRendererImpl.cpp:298 in Initialize] -> [NkRendererImpl]  step16: BuildDefaultRenderGraph
+
+[2026-10-19 12:58:05.214] [INF] [default] [NkRendererImpl.cpp:302 in Initialize] -> [NkRendererImpl] Initialize done
+
+[2026-10-19 12:58:05.217] [INF] [default] [NkRenderGraph.cpp:456 in Execute] -> [NkRenderGraph] Execute frame=1 : passes=5 swap=1280x720
+
+[2026-10-19 12:58:05.218] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Shadows' enabled=true hasExecute=true colors=0 hasDepth=false
+
+[2026-10-19 12:58:05.218] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Geometry' enabled=true hasExecute=true colors=1 hasDepth=true
+
+[2026-10-19 12:58:05.218] [INF] [default] [NkRender3D.cpp:882 in EnsurePBRPipeline] -> [NkRender3D] PBR pipeline (lazy) create: shader_valid=1 pipeline_valid=1 rp.id=0
+
+[2026-10-19 12:58:05.218] [INF] [default] [NkMaterialSystem.cpp:633 in UpdateInstanceDescriptors] -> [NkMaterialSystem] canal albedo lie : id=3 (blanc 1x1 = id=3) -> REPLI BLANC : rien n'a ete pose sur ? albedo ?
+
+[2026-10-19 12:58:05.218] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'SelectionMask' enabled=true hasExecute=true colors=1 hasDepth=false
+
+[2026-10-19 12:58:05.218] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Overlay3D' enabled=true hasExecute=true colors=1 hasDepth=true
+
+[2026-10-19 12:58:05.218] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'SelectionOutline' enabled=true hasExecute=true colors=1 hasDepth=false
+
+[2026-10-19 12:58:05.219] [INF] [default] [NkShaderLibrary.cpp:755 in LoadOrCompileVF] -> [NkShaderLibrary] 'SelOutline' -> chemin NkSL (vrai dialecte) : C:/Users/HP/Documents/GitHub/ani-4087/chapitre-06/exo6-le_cone_du_mauvais_ordre/salle/Resources/NKRenderer/Shaders/SelOutline/NkSL/seloutline.vert.nksl
+
+[2026-10-19 12:58:05.219] [INF] [default] [NkShaderLibrary.cpp:591 in CompileVF] -> [CompileVF] 'SelOutline' vsGlsl=343 fsGlsl=2900 hlsl(vs=0,fs=0)
+
+[2026-10-19 12:58:05.221] [INF] [default] [NkRender3D.cpp:1361 in EnsureSelOutlinePipeline] -> [NkRender3D] SelOutline pipeline create: shader_valid=1 pipeline_valid=1 rp.id=0
+
+[2026-10-19 12:58:05.221] [WRN] [default] [NkOpenglDevice.cpp:289 in GlDebugCallback] -> [NkRHI_GL][API/PERF/2] API_ID_RECOMPILE_FRAGMENT_SHADER performance warning has been generated. Fragment shader recompiled due to state change.
+[2026-10-19 12:58:05.226] [INF] [default] [NkRenderGraph.cpp:456 in Execute] -> [NkRenderGraph] Execute frame=2 : passes=5 swap=1280x720
+
+[2026-10-19 12:58:05.226] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Shadows' enabled=true hasExecute=true colors=0 hasDepth=false
+
+[2026-10-19 12:58:05.226] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Geometry' enabled=true hasExecute=true colors=1 hasDepth=true
+
+[2026-10-19 12:58:05.226] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'SelectionMask' enabled=true hasExecute=true colors=1 hasDepth=false
+
+[2026-10-19 12:58:05.226] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Overlay3D' enabled=true hasExecute=true colors=1 hasDepth=true
+
+[2026-10-19 12:58:05.226] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'SelectionOutline' enabled=true hasExecute=true colors=1 hasDepth=false
+
+[2026-10-19 12:58:05.257] [INF] [default] [NkRenderGraph.cpp:456 in Execute] -> [NkRenderGraph] Execute frame=3 : passes=5 swap=1280x720
+
+[2026-10-19 12:58:05.257] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Shadows' enabled=true hasExecute=true colors=0 hasDepth=false
+
+[2026-10-19 12:58:05.257] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Geometry' enabled=true hasExecute=true colors=1 hasDepth=true
+
+[2026-10-19 12:58:05.257] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'SelectionMask' enabled=true hasExecute=true colors=1 hasDepth=false
+
+[2026-10-19 12:58:05.257] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'Overlay3D' enabled=true hasExecute=true colors=1 hasDepth=true
+
+[2026-10-19 12:58:05.257] [INF] [default] [NkRenderGraph.cpp:492 in Execute] -> [NkRenderGraph]   pass 'SelectionOutline' enabled=true hasExecute=true colors=1 hasDepth=false
+
+[2026-10-19 12:58:06.207] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 1003 soumission(s) (image 60)
+
+[2026-10-19 12:58:07.174] [INF] [default] [NkRendererImpl.cpp:564 in RebuildRenderGraph] -> [NkRendererImpl] RebuildRenderGraph #1
+
+[2026-10-19 12:58:07.207] [INF] [default] [NkRender3D.cpp:1681 in ResetFrame] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 2023 soumission(s) (image 120)
+
+[2026-10-19 12:58:07.283] [INF] [default] [cone.cpp:326 in nkmain] -> [MaSalleCone] mauvais-0.png : OK
+[2026-10-19 12:58:07.283] [INF] [default] [NkRendererImpl.cpp:564 in RebuildRenderGraph] -> [NkRendererImpl] RebuildRenderGraph #2
+
+[2026-10-19 12:58:07.284] [INF] [default] [NkRender3D.cpp:1424 in Shutdown] -> [NkRender3D] bilan etendues : 0 non renseignee(s) sur 2040 soumission(s)
+
+[2026-10-19 12:58:07.296] [INF] [default] [NkMaterialLibrary.cpp:45 in Shutdown] -> [NkMaterialLibrary] Shutdown
+
+[2026-10-19 12:58:07.325] [INF] [default] [NkOpenglDevice.cpp:1158 in Shutdown] -> [NkRHI_GL] Shutdown
+
