@@ -1,0 +1,13 @@
+Build/
+build/
+.jenga/
+logs/
+*.exe
+*.lib
+*.dll
+*.o
+*.obj
+Resources/
+pyrightconfig.json
+src/pointeur.cpp
+src/pointeur.h
