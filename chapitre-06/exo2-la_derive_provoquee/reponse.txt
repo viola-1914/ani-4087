@@ -1,0 +1,11 @@
+Ma sensibilité :
+0,002 radian par compte du capteur, soit environ 0,115 degré par compte. Je l'ai gardée pour toute la mesure (constante SENSIBILITE dans derive.cpp).
+
+Vitesse de dérive : 6,9 deg/s
+Calculée sur deux lignes éloignées de derive.txt, à dix secondes d'écart, souris immobile : à t = 21,0 s le lacet vaut −10,9 deg, à t = 31,0 s il vaut −79,7 deg. La tête a tourné de −79,7 − (−10,9) = −68,8 degrés en 10 secondes, soit −6,88 deg/s : environ 6,9 degrés par seconde, vers la gauche (le lacet diminue).
+
+D'où vient ce chiffre :
+Il se reconstruit entièrement à partir de mes relevés. Entre t = 21,0 s et t = 31,0 s, le compteur passe de 1210 à 1810 images : 600 images en 10 secondes, soit 60 images par seconde. Sur toutes ces lignes, la colonne brut vaut −1 : à chaque image, le programme ajoute donc −1 × 0,002 = −0,002 radian au lacet. Par seconde : 60 × (−0,002) = −0,12 radian, et −0,12 × 57,3 = −6,88 degrés. C'est exactement la vitesse mesurée sur le lacet. La dérive vaut donc la dernière valeur brute, multipliée par la sensibilité et par le nombre d'images par seconde : la vitesse de dérive dépend de la cadence. La même faute, à 120 images par seconde, ferait tourner la tête deux fois plus vite. Et avec un dernier déplacement plus grand (brut = 15, valeur relevée plus tôt dans la mesure), la tête tournerait à 15 × 6,88 ≈ 103 degrés par seconde.
+
+Pourquoi elle ne s'arrête pas :
+La colonne brut le montre : souris immobile, elle reste à −1 de t = 20 s à t = 31 s, ligne après ligne, au lieu de retomber à 0. MouseRawDeltaX() rend le déplacement du dernier événement brut reçu, et rien ne le remet à zéro : NkEventState::OnRaw écrase la valeur à chaque événement, mais personne ne la consomme. Quand la souris s'arrête, aucun nouvel événement n'arrive, donc la dernière valeur, −1, reste en place, et mon programme, qui la relit à chaque image sans l'accumuler ni la vider, la rejoue soixante fois par seconde. La tête tourne donc à vitesse constante, aussi longtemps qu'on n'y touche pas. Dans mon relevé complet, la dérive ne s'est arrêtée qu'à t = 32 s, où brut est passé à 0 et le lacet est resté à −82,2 deg : un nouvel événement brut, avec un déplacement horizontal nul, a écrasé l'ancienne valeur. Ce n'est donc pas l'arrêt de la souris qui arrête la tête, mais l'arrivée d'un nouvel événement, ce qui est précisément le défaut.
