@@ -1,0 +1,2 @@
+oeil-gauche.png : luminosite moyenne 59.9, min 4, max 160
+oeil-gauche-vue-oubliee.png : luminosite moyenne 59.9, min 4, max 160

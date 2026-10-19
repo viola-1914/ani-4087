@@ -1,0 +1,2 @@
+deux yeux : 25746 pixels sur 460800, ecart max 202
+vue oubliee : 0 pixels sur 460800, ecart max 0

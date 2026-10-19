@@ -27,3 +27,6 @@ pyrightconfig.json
 Thumbs.db
 desktop.ini
 .DS_Store
+Resources/
+Build/
+logs/
