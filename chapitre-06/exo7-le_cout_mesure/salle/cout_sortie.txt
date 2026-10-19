@@ -1,0 +1,11 @@
+verification, lacet 45, tangage 30 :
+  matrices    : (x 0.2391, y 0.3696, z -0.0990, w 0.8924)
+  quaternions : (x 0.2391, y 0.3696, z -0.0990, w 0.8924)
+  ecart = 0.000000 -> meme quaternion
+Release, matrices : 49.58 ms
+Release, quaternions : 21.35 ms
+Release, matrices : 49.67 ms
+Release, quaternions : 21.45 ms
+Release, matrices : 50.01 ms
+Release, quaternions : 20.52 ms
+somme de controle : 4195891.022

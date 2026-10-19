@@ -1,0 +1,24 @@
+# MaSalle — chapitre 06, exercice 7 : le cout mesure.
+#
+# Le kit Nkentseu vit HORS de ce depot : une seule ligne a changer si on le
+# deplace ou si on le met a jour.
+
+from Jenga import *
+
+KIT = "C:/Nkentseu/NkentseuKit.jenga"
+
+with workspace("MaSalleWks"):
+    configurations(["Debug", "Release"])
+
+    useconfig(KIT)              # en-tetes, dossiers de bibliotheques, ordre de lien
+
+    with project("MaSalle"):
+        windowedapp()           # application a fenetre : pas de console derriere
+        language("C++")
+        cppdialect("C++17")
+        files(["src/**.cpp"])
+        usenkentseukit()        # fonction ecrite par `jenga kit` (joue le role de userenderer())
+
+        # Sans ces deux lignes, Release ne compile pas le code plus vite que Debug.
+        with filter("config:Release"):
+            optimize("Speed")
