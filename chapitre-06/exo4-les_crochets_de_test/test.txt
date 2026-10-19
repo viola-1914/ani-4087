@@ -1,0 +1,13 @@
+Lancement 1 : Regard() tel quel
+lacet 90, tangage 0 : attendu (-1.000, 0.000, 0.000), obtenu (-1.000, 0.000, 0.000), OK
+lacet -90, tangage 0 : attendu (1.000, 0.000, 0.000), obtenu (1.000, 0.000, 0.000), OK
+lacet 0, tangage 0 : attendu (0.000, 0.000, -1.000), obtenu (0.000, 0.000, -1.000), OK
+lacet 0, tangage 45 : attendu (0.000, 0.707, -0.707), obtenu (0.000, 0.707, -0.707), OK
+code de sortie : 0
+
+Lancement 2 : signe du lacet inverse dans Regard()
+lacet 90, tangage 0 : attendu (-1.000, 0.000, 0.000), obtenu (1.000, 0.000, 0.000), ECHEC
+lacet -90, tangage 0 : attendu (1.000, 0.000, 0.000), obtenu (-1.000, 0.000, 0.000), ECHEC
+lacet 0, tangage 0 : attendu (0.000, 0.000, -1.000), obtenu (0.000, 0.000, -1.000), OK
+lacet 0, tangage 45 : attendu (0.000, 0.707, -0.707), obtenu (0.000, 0.707, -0.707), OK
+code de sortie : 1
