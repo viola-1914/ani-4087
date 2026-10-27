@@ -1,0 +1,2 @@
+sans attente : 6241 images, moyenne 9.614 ms, ecart type 0.701 ms, max 12.320 ms, hors budget 15
+(info) api=OpenGL, echecs avant : Vulkan (device) , duree mesuree 60.001 s, images > 20 ms : 0, > 30 ms : 0

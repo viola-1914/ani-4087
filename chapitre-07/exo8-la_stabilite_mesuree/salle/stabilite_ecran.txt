@@ -1,0 +1,2 @@
+ecran : 3600 images, moyenne 16.667 ms, ecart type 1.426 ms, max 31.976 ms, hors budget 3595
+(info) api=OpenGL, echecs avant : Vulkan (device) , duree mesuree 60.000 s, images > 20 ms : 15, > 30 ms : 1
