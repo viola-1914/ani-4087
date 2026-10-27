@@ -1,0 +1,22 @@
+serie programme
+image 1 : dt = 56.588 ms, vitesse = (0.00, 30.00, 0.00) deg/s
+image 2 : dt = 56.741 ms, vitesse = (-0.00, 30.00, -0.00) deg/s
+image 3 : dt = 58.065 ms, vitesse = (0.00, 30.00, 0.00) deg/s
+image 4 : dt = 57.283 ms, vitesse = (-0.00, 30.00, 0.00) deg/s
+image 5 : dt = 58.314 ms, vitesse = (0.00, 30.00, -0.00) deg/s
+image 6 : dt = 58.916 ms, vitesse = (-0.00, 30.00, 0.00) deg/s
+image 7 : dt = 53.213 ms, vitesse = (0.00, 30.00, -0.00) deg/s
+image 8 : dt = 49.162 ms, vitesse = (0.00, 30.00, 0.00) deg/s
+image 9 : dt = 40.072 ms, vitesse = (-0.00, 30.00, 0.00) deg/s
+image 10 : dt = 27.672 ms, vitesse = (0.00, 30.00, -0.00) deg/s
+image 11 : dt = 27.930 ms, vitesse = (-0.00, 30.00, 0.00) deg/s
+image 12 : dt = 25.486 ms, vitesse = (0.00, 30.00, -0.00) deg/s
+image 13 : dt = 19.787 ms, vitesse = (0.00, 30.00, 0.00) deg/s
+image 14 : dt = 13.588 ms, vitesse = (0.00, 30.00, 0.00) deg/s
+image 15 : dt = 16.587 ms, vitesse = (-0.00, 30.00, 0.00) deg/s
+image 16 : dt = 16.410 ms, vitesse = (0.00, 30.00, -0.00) deg/s
+image 17 : dt = 13.823 ms, vitesse = (0.00, 30.00, 0.00) deg/s
+image 18 : dt = 16.503 ms, vitesse = (-0.00, 30.00, 0.00) deg/s
+image 19 : dt = 17.940 ms, vitesse = (0.00, 30.00, -0.00) deg/s
+image 20 : dt = 12.610 ms, vitesse = (0.00, 30.00, 0.00) deg/s
+(info) api=OpenGL, echecs avant : Vulkan (device) , lignes = 20
