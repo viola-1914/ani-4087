@@ -1,0 +1,5 @@
+budget 72 Hz : 13.889 ms
+budget 90 Hz : 11.111 ms
+budget 120 Hz : 8.333 ms
+sans attente : moyenne 9.937 ms, mediane 10.338 ms, max 47.618 ms
+(info) api=OpenGL, echecs avant : Vulkan (device) , intervalles=1000, cadence mediane 96.7 images/s, au-dessus du budget : 72 Hz 1, 90 Hz 87, 120 Hz 988
