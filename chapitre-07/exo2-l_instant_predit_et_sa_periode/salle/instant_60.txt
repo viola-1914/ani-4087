@@ -1,0 +1,22 @@
+maintenant = 793.286 ms, predit = 809.953 ms, ecart = 16.667 ms
+maintenant = 807.795 ms, predit = 824.461 ms, ecart = 16.667 ms
+maintenant = 824.274 ms, predit = 840.941 ms, ecart = 16.667 ms
+maintenant = 841.063 ms, predit = 857.730 ms, ecart = 16.667 ms
+maintenant = 856.562 ms, predit = 873.228 ms, ecart = 16.667 ms
+maintenant = 872.612 ms, predit = 889.279 ms, ecart = 16.667 ms
+maintenant = 888.058 ms, predit = 904.725 ms, ecart = 16.667 ms
+maintenant = 904.885 ms, predit = 921.551 ms, ecart = 16.667 ms
+maintenant = 922.853 ms, predit = 939.520 ms, ecart = 16.667 ms
+maintenant = 941.315 ms, predit = 957.982 ms, ecart = 16.667 ms
+maintenant = 956.043 ms, predit = 972.710 ms, ecart = 16.667 ms
+maintenant = 974.095 ms, predit = 990.761 ms, ecart = 16.667 ms
+maintenant = 993.888 ms, predit = 1010.554 ms, ecart = 16.667 ms
+maintenant = 1011.702 ms, predit = 1028.368 ms, ecart = 16.667 ms
+maintenant = 1044.176 ms, predit = 1060.843 ms, ecart = 16.667 ms
+maintenant = 1059.897 ms, predit = 1076.563 ms, ecart = 16.667 ms
+maintenant = 1094.651 ms, predit = 1111.318 ms, ecart = 16.667 ms
+maintenant = 1109.435 ms, predit = 1126.101 ms, ecart = 16.667 ms
+maintenant = 1144.387 ms, predit = 1161.053 ms, ecart = 16.667 ms
+maintenant = 1156.406 ms, predit = 1173.072 ms, ecart = 16.667 ms
+hz = 60, periode = 16.667 ms, reel - predit = 0.081 ms
+(info) api=OpenGL, echecs avant : Vulkan (device) , ecarts moyennes = 600
