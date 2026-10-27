@@ -1,0 +1,6 @@
+rapide (90 deg en 400 ms) : avec 0.330 deg, sans 3.103 deg, rapport 9.40
+(info) rapide : 29 poses, max avec 0.529 deg, max sans 4.906 deg
+lent (30 deg en 1000 ms) : avec 0.001 deg, sans 0.414 deg, rapport 752.81
+(info) lent : 72 poses, max avec 0.040 deg, max sans 0.654 deg
+demi-tour (180 deg en 250 ms) : avec 1.660 deg, sans 10.000 deg, rapport 6.02
+(info) demi-tour : 18 poses, max avec 2.693 deg, max sans 15.628 deg
