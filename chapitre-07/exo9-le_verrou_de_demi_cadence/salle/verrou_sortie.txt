@@ -1,0 +1,7 @@
+copies de la salle : 14
+sans verrou : moyenne 23.614 ms, ecart type 5.821 ms, max 51.063 ms
+avec verrou : moyenne 33.534 ms, ecart type 2.461 ms, max 91.381 ms
+(info) api=OpenGL, hz=60, periode 16.667 ms, intervalles sans=1000 avec=1000, images/s sans 42.3 avec 29.8
+(info) sans verrou : < 1,5 periode 602, 1,5 a 2,5 periodes 396, >= 2,5 periodes 2
+(info) avec verrou : < 1,5 periode 0, 1,5 a 2,5 periodes 995, >= 2,5 periodes 5
+(info) etalonnage, moyenne par nombre de copies : 1=16.7 2=16.7 3=16.6 4=16.6 5=16.6 6=16.7 7=16.7 8=16.6 9=16.7 10=16.6 11=16.7 12=16.6 13=16.7 14=25.2
