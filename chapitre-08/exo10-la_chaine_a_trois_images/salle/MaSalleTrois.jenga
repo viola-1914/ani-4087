@@ -1,0 +1,20 @@
+# MaSalleTrois — chapitre 08, exercice 10 : la chaine a trois images.
+#
+# Le kit Nkentseu vit HORS de ce depot : une seule ligne a changer si on le
+# deplace ou si on le met a jour.
+
+from Jenga import *
+
+KIT = "C:/Nkentseu/NkentseuKit.jenga"
+
+with workspace("MaSalleTroisWks"):
+    configurations(["Debug", "Release"])
+
+    useconfig(KIT)              # en-tetes, dossiers de bibliotheques, ordre de lien
+
+    with project("MaSalleTrois"):
+        windowedapp()
+        language("C++")
+        cppdialect("C++17")
+        files(["src/**.cpp"])
+        usenkentseukit()

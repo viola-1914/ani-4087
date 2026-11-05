@@ -1,0 +1,2 @@
+1 image(s) : 300 trames, moyenne 18.565 ms, max 34.119 ms, refus 0
+3 image(s) : 300 trames, moyenne 16.682 ms, max 21.644 ms, refus 0
