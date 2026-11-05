@@ -1,0 +1,20 @@
+Images paires et impaires :
+Avec la chaîne de deux images, la caméra part de 0 et avance de 10 mm à chaque trame, et le mot DPDPDPDP fait alterner les deux lectures de l'index. Aux trames impaires (mode D, lecture après ReleaseImage), l'œil voit la trame que l'on vient de peindre : 10 mm à la trame 1, 30 à la trame 3, 50 à la trame 5, 70 à la trame 7. Aux trames paires (mode P, lecture avant ReleaseImage), (prochaine + n - 1) % n désigne l'autre emplacement, celui qui garde la trame d'avant. L'œil revoit donc la même image : 10 à la trame 2, 30 à la trame 4, 50 à la trame 6, 70 à la trame 8. Les trames 2, 4, 6 et 8 sont peintes mais jamais montrées : la moitié du travail part à la poubelle. Ma sortie (resultat.txt) donne les sauts 0, 20, 0, 20, 0, 20, 0, soit SAUT MIN 0, SAUT MAX 20 et TREMBLE OUI. La caméra avance régulièrement de 10 mm par trame, mais l'œil la voit s'arrêter une trame puis bondir de 20 mm. En moyenne, la vitesse reste juste (70 mm en 7 sauts), mais le mouvement est saccadé : c'est comme une animation à la moitié de la cadence, avec chaque image affichée deux fois. Dans un casque, ce tremblement de 20 mm toutes les deux trames se voit sur tout ce qui défile et fatigue vite. La même alternance avec trois images (n = 3) donne exactement les mêmes sauts 0 et 20.
+
+Avec une seule image :
+En relançant avec n = 1 (1 8 0 10, même mot DPDPDPDP), ma sortie est :
+1 10 -
+2 20 10
+3 30 10
+4 40 10
+5 50 10
+6 60 10
+7 70 10
+8 80 10
+SAUT MIN 10
+SAUT MAX 10
+TREMBLE NON
+Tout est juste : chaque trame montre sa propre position, avec un saut constant de 10 mm. Avec une seule image, l'emplacement emprunté vaut toujours 0, et (prochaine + n - 1) % n vaut aussi toujours 0, que l'on lise avant ou après ReleaseImage : (0 + 1 - 1) % 1 = 0. Les trois modes A, P et D désignent donc le même emplacement, celui où l'on vient de peindre. La mauvaise lecture du mode P est bien dans le code, mais elle ne se voit pas. C'est le piège du simulateur, qui travaille avec une chaîne d'une seule image : le défaut y passe tous les tests, et il n'apparaît qu'avec les deux ou trois images d'un vrai runtime de casque, le jour où l'on branche le casque.
+
+La bonne lecture :
+Il faut lire GetLastReleasedIndex() après ReleaseImage, c'est-à-dire le mode D : à ce moment, la dernière image relâchée est celle que l'on vient de peindre. C'est ce que fait la démo du moteur : elle appelle ReleaseImage sur chaque œil, puis remplit la couche de projection avec imageIndex = GetLastReleasedIndex() au moment de EndFrame. Avec deux images et DDDDDDDD, ma sortie montre 10, 20, 30… 80 mm, avec un saut constant de 10 mm et TREMBLE NON, comme avec une seule image. Le mode A (l'index emprunté, AAAAAAAA) donne le même résultat, puisque l'image empruntée est celle que l'on relâche ensuite. À l'inverse, lire avant ReleaseImage à chaque trame (PPPPPPPP) ne tremble pas : la trame 1 est NOIR, puis on voit 10, 20… 70 mm avec un saut constant de 10 mm. Mais tout arrive avec une trame de retard, soit environ 13,9 ms à 72 Hz, et cette latence s'ajoute à celle que la prédiction doit compenser. Un décalage constant ne tremble pas, c'est l'alternance des deux lectures qui fait trembler. Seule la lecture après ReleaseImage évite à la fois le tremblement et la trame de retard.
