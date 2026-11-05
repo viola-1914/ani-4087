@@ -1,0 +1,20 @@
+# MaSalleEmprunts — chapitre 08, exercice 9 : compter les emprunts.
+#
+# Le kit Nkentseu vit HORS de ce depot : une seule ligne a changer si on le
+# deplace ou si on le met a jour.
+
+from Jenga import *
+
+KIT = "C:/Nkentseu/NkentseuKit.jenga"
+
+with workspace("MaSalleEmpruntsWks"):
+    configurations(["Debug", "Release"])
+
+    useconfig(KIT)              # en-tetes, dossiers de bibliotheques, ordre de lien
+
+    with project("MaSalleEmprunts"):
+        windowedapp()
+        language("C++")
+        cppdialect("C++17")
+        files(["src/**.cpp"])
+        usenkentseukit()
